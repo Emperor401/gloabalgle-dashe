@@ -39,7 +39,6 @@ import PageLoader from '../ui/PageLoader.vue'
   min-height: 100vh;
   background: var(--bg);
   position: relative;
-  overflow: hidden;
   transition: background 0.35s ease;
 }
 
