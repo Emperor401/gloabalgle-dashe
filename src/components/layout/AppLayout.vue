@@ -57,42 +57,42 @@ import PageLoader from '../ui/PageLoader.vue'
 }
 
 .orb--violet {
-  width: 700px;
-  height: 700px;
+  width: 800px;
+  height: 800px;
   background: radial-gradient(circle, #22c55e 0%, transparent 70%);
-  top: -260px;
-  left: -140px;
-  opacity: 0.22;
+  top: -180px;
+  left: 22%;
+  opacity: 0.28;
   animation: floatOrb 14s ease-in-out infinite alternate;
 }
 
 .orb--emerald {
-  width: 480px;
-  height: 480px;
+  width: 560px;
+  height: 560px;
   background: radial-gradient(circle, #4ade80 0%, transparent 70%);
-  bottom: -180px;
+  bottom: 0;
   right: 6%;
-  opacity: 0.14;
+  opacity: 0.18;
   animation: floatOrb 17s ease-in-out infinite alternate-reverse;
 }
 
 .orb--rose {
-  width: 400px;
-  height: 400px;
+  width: 440px;
+  height: 440px;
   background: radial-gradient(circle, #f87171 0%, transparent 70%);
-  top: 40%;
-  right: -120px;
-  opacity: 0.13;
+  top: 38%;
+  right: -40px;
+  opacity: 0.15;
   animation: floatOrb 11s ease-in-out infinite alternate;
 }
 
 .orb--indigo {
-  width: 760px;
-  height: 760px;
-  background: radial-gradient(circle, #14532d 0%, transparent 70%);
-  bottom: -340px;
-  left: 20%;
-  opacity: 0.28;
+  width: 820px;
+  height: 820px;
+  background: radial-gradient(circle, #1a6b3c 0%, transparent 70%);
+  bottom: -120px;
+  left: 32%;
+  opacity: 0.24;
   animation: floatOrb 20s ease-in-out infinite alternate-reverse;
 }
 
