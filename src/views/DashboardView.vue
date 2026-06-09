@@ -52,46 +52,57 @@
 
         <!-- Action buttons -->
         <div class="bal-actions">
+          <!-- Send -->
           <div class="bal-action">
-            <button class="ba-btn ba-btn--primary" @click="router.push('/wallet')">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <button class="ba-btn ba-btn--blue" @click="router.push('/transactions')">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"/>
+                <polygon points="22 2 15 22 11 13 2 9 22 2" fill="#fff" stroke="none"/>
+              </svg>
             </button>
-            <span class="ba-label">Add</span>
+            <span class="ba-label">Send</span>
           </div>
+          <!-- Add Funds -->
           <div class="bal-action">
-            <button class="ba-btn" @click="router.push('/wallet')">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <button class="ba-btn ba-btn--green" @click="router.push('/wallet')">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round">
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
             </button>
-            <span class="ba-label">Withdraw</span>
+            <span class="ba-label">Add Funds</span>
           </div>
+          <!-- Message -->
           <div class="bal-action">
-            <button class="ba-btn" @click="router.push('/transactions')">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            <button class="ba-btn ba-btn--pink" @click="router.push('/complaint')">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
             </button>
-            <span class="ba-label">Pay</span>
+            <span class="ba-label">Message</span>
           </div>
+          <!-- PayPal -->
           <div class="bal-action">
-            <button class="ba-btn" @click="router.push('/wallet')">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <button class="ba-btn ba-btn--navy" @click="router.push('/billing')">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <text x="5" y="17" font-size="15" font-weight="800" font-family="Arial,sans-serif" fill="#fff">P</text>
+              </svg>
             </button>
-            <span class="ba-label">Direct dep.</span>
+            <span class="ba-label">PayPal</span>
           </div>
+          <!-- SMS Alert -->
           <div class="bal-action">
-            <button class="ba-btn" @click="showMore = !showMore">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+            <button class="ba-btn ba-btn--cyan" @click="router.push('/tools/sms-sender')">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                <line x1="9" y1="10" x2="15" y2="10" stroke="#fff" stroke-width="2"/>
+                <line x1="9" y1="13" x2="12" y2="13" stroke="#fff" stroke-width="2"/>
+              </svg>
             </button>
-            <span class="ba-label">More</span>
+            <span class="ba-label">SMS Alert</span>
           </div>
         </div>
 
-        <!-- More options dropdown -->
-        <Transition name="fade">
-          <div v-if="showMore" class="more-menu">
-            <button @click="router.push('/transactions'); showMore=false">Transaction History</button>
-            <button @click="router.push('/billing'); showMore=false">Billing & Plans</button>
-            <button @click="router.push('/settings'); showMore=false">Account Settings</button>
-          </div>
-        </Transition>
 
       </div>
 
@@ -204,23 +215,142 @@
         </table>
       </div>
 
-      <!-- ╔══ Quick Actions (span 4) ══╗ -->
-      <div class="b-quick-actions">
-        <span class="section-title">Quick actions</span>
-        <div class="qa-grid">
-          <router-link
-            v-for="qa in quickActions"
-            :key="qa.label"
-            :to="qa.route"
-            class="qa-card"
-            :class="{ 'qa-card--active': route.path === qa.route }"
-          >
-            <div class="qa-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" v-html="qa.icon" />
+      <!-- ╔══ Referral + Advertplace (span 4) ══╗ -->
+      <div class="b-promo-row">
+
+        <!-- Refer & Earn -->
+        <div class="promo-card promo-card--referral">
+          <div class="promo-card__header">
+            <div class="promo-icon promo-icon--purple">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
             </div>
-            <span class="qa-label">{{ qa.label }}</span>
-          </router-link>
+            <div>
+              <p class="promo-card__title">Refer &amp; Earn</p>
+              <p class="promo-card__sub">Invite friends, earn rewards</p>
+            </div>
+          </div>
+
+          <div class="ref-stats">
+            <div class="ref-stat">
+              <span class="ref-stat__val">12</span>
+              <span class="ref-stat__lbl">Invited</span>
+            </div>
+            <div class="ref-stat-divider"></div>
+            <div class="ref-stat">
+              <span class="ref-stat__val">$180</span>
+              <span class="ref-stat__lbl">Earned</span>
+            </div>
+            <div class="ref-stat-divider"></div>
+            <div class="ref-stat">
+              <span class="ref-stat__val">7</span>
+              <span class="ref-stat__lbl">Active</span>
+            </div>
+          </div>
+
+          <div class="ref-progress-wrap">
+            <div class="ref-progress-label">
+              <span>Progress to next reward</span>
+              <span class="ref-progress-pct">60%</span>
+            </div>
+            <div class="ref-progress-bar">
+              <div class="ref-progress-fill" style="width: 60%"></div>
+            </div>
+            <p class="ref-progress-hint">3 more referrals to unlock <strong>$50 bonus</strong></p>
+          </div>
+
+          <div class="ref-code-row">
+            <div class="ref-code-box">
+              <span class="ref-code-label">Your referral code</span>
+              <span class="ref-code-val">GLB-IFY2024</span>
+            </div>
+            <div class="ref-code-actions">
+              <button class="ref-copy-btn" @click="copyReferralCode" :class="{ 'ref-copy-btn--copied': refCopied }">
+                <svg v-if="!refCopied" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2"/>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                </svg>
+                <svg v-else width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                {{ refCopied ? 'Copied!' : 'Copy' }}
+              </button>
+              <button class="ref-share-btn" @click="shareReferral">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                  <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+                  <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                  <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+                </svg>
+                Share
+              </button>
+            </div>
+          </div>
         </div>
+
+        <!-- Advertplace -->
+        <div class="promo-card promo-card--advert">
+          <div class="promo-card__header">
+            <div class="promo-icon promo-icon--amber">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+              </svg>
+            </div>
+            <div>
+              <p class="promo-card__title">Advertplace</p>
+              <p class="promo-card__sub">Grow your business reach</p>
+            </div>
+            <span class="advert-live-badge">
+              <span class="advert-live-dot"></span> Live
+            </span>
+          </div>
+
+          <div class="advert-metrics">
+            <div class="advert-metric">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              <span class="advert-metric__val">24.8k</span>
+              <span class="advert-metric__lbl">Impressions</span>
+            </div>
+            <div class="advert-metric">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              <span class="advert-metric__val">1,340</span>
+              <span class="advert-metric__lbl">Clicks</span>
+            </div>
+            <div class="advert-metric">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              <span class="advert-metric__val">$312</span>
+              <span class="advert-metric__lbl">Revenue</span>
+            </div>
+          </div>
+
+          <div class="advert-slots">
+            <div class="advert-slot advert-slot--active">
+              <div class="advert-slot__dot advert-slot__dot--green"></div>
+              <div class="advert-slot__info">
+                <span class="advert-slot__name">Globalgle Pro Banner</span>
+                <span class="advert-slot__meta">Ends Jun 20 · 5.4% CTR</span>
+              </div>
+              <span class="advert-slot__badge">Active</span>
+            </div>
+            <div class="advert-slot">
+              <div class="advert-slot__dot advert-slot__dot--amber"></div>
+              <div class="advert-slot__info">
+                <span class="advert-slot__name">Summer Promo Spot</span>
+                <span class="advert-slot__meta">Scheduled · Jul 1</span>
+              </div>
+              <span class="advert-slot__badge advert-slot__badge--pending">Pending</span>
+            </div>
+          </div>
+
+          <button class="advert-cta-btn" @click="router.push('/tools')">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Create New Ad
+          </button>
+        </div>
+
       </div>
 
     </div>
@@ -229,22 +359,30 @@
 
 <script setup>
 import { ref } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { useRouter } from 'vue-router'
 import CommunityModal from '../components/ui/CommunityModal.vue'
 
-const route  = useRoute()
 const router = useRouter()
 
 const autoDeposit = ref(true)
-const showMore    = ref(false)
 
 
-const quickActions = [
-  { label: 'Branded Emails', route: '/email-services/branded-emails', icon: '<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>' },
-  { label: 'Branded Bills',  route: '/email-services/branded-bills',  icon: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="12" y2="17"/>' },
-  { label: 'Email Composer', route: '/email-services/composer',       icon: '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>' },
-  { label: 'Upgrade plan',   route: '/billing',                       icon: '<rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M16 14h2"/>' },
-]
+const refCopied = ref(false)
+function copyReferralCode() {
+  navigator.clipboard?.writeText('GLB-IFY2024').catch(() => {})
+  refCopied.value = true
+  setTimeout(() => { refCopied.value = false }, 2000)
+}
+function shareReferral() {
+  const text = 'Join Globalgle — the smarter banking dashboard. Use my referral code GLB-IFY2024 to get started!'
+  if (navigator.share) {
+    navigator.share({ title: 'Join Globalgle', text }).catch(() => {})
+  } else {
+    navigator.clipboard?.writeText(text).catch(() => {})
+    refCopied.value = true
+    setTimeout(() => { refCopied.value = false }, 2000)
+  }
+}
 
 const recentPayments = [
   { id: 1, date: 'Jun 7, 2026', method: 'Korapay', currency: 'NGN', amount: 8,     status: 'pending'   },
@@ -483,33 +621,34 @@ function fmtAmount(amount, currency = 'NGN') {
 .bal-actions {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 22px;
   margin-top: 4px;
 }
 .bal-action {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 7px;
+  gap: 8px;
 }
 .ba-btn {
-  width: 52px; height: 52px;
+  width: 54px; height: 54px;
   border-radius: 50%;
-  border: 1.5px solid var(--border);
-  background: rgba(255,255,255,0.05);
-  color: var(--t1);
+  border: none;
   display: flex; align-items: center; justify-content: center;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: transform 0.18s ease, filter 0.18s ease;
+  flex-shrink: 0;
 }
-.ba-btn:hover { border-color: #22c55e; color: #22c55e; background: rgba(34,197,94,.08); }
-.ba-btn--primary {
-  width: 58px; height: 58px;
-  background: #22c55e;
-  border-color: #22c55e;
-  color: #fff;
-}
-.ba-btn--primary:hover { background: #16a34a; border-color: #16a34a; color: #fff; }
+.ba-btn:hover  { transform: translateY(-3px); filter: brightness(1.12); }
+.ba-btn:active { transform: translateY(0px) scale(0.95); }
+
+/* Individual button colors — exact match to reference */
+.ba-btn--blue  { background: #3b82f6; }
+.ba-btn--green { background: #22c55e; }
+.ba-btn--pink  { background: #ec4899; }
+.ba-btn--navy  { background: #1e3a5f; }
+.ba-btn--cyan  { background: #06b6d4; }
+
 .ba-label {
   font-size: 0.7rem;
   font-weight: 600;
@@ -586,32 +725,6 @@ function fmtAmount(amount, currency = 'NGN') {
 .fade-enter-active, .fade-leave-active { transition: opacity 0.18s ease, transform 0.18s ease; }
 .fade-enter-from, .fade-leave-to       { opacity: 0; transform: translateY(-4px); }
 
-.more-menu {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding: 8px;
-  border-radius: 12px;
-  border: 1px solid var(--border-soft);
-  background: var(--glass);
-  backdrop-filter: var(--glass-filter);
-  -webkit-backdrop-filter: var(--glass-filter);
-  margin-top: -4px;
-}
-.more-menu button {
-  padding: 9px 14px;
-  border-radius: 8px;
-  border: none;
-  background: transparent;
-  color: var(--t2);
-  font-family: 'Satoshi', sans-serif;
-  font-size: 0.82rem;
-  font-weight: 600;
-  text-align: left;
-  cursor: pointer;
-  transition: background 0.15s, color 0.15s;
-}
-.more-menu button:hover { background: rgba(34,197,94,.1); color: #22c55e; }
 
 /* ══ SECTION HEADER ══ */
 .section-head {
@@ -702,62 +815,288 @@ function fmtAmount(amount, currency = 'NGN') {
 .pay-status--completed { background: rgba(34,197,94,.12);   color: #22c55e; border: 1px solid rgba(34,197,94,.25);   }
 .pay-status--failed    { background: rgba(248,113,113,.12); color: #f87171; border: 1px solid rgba(248,113,113,.25); }
 
-/* ══ QUICK ACTIONS ══ */
-.b-quick-actions {
+/* ══ REFERRAL + ADVERTPLACE ══ */
+.b-promo-row {
   grid-column: span 4;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.qa-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
 }
 
-.qa-card {
+.promo-card {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 18px;
-  border-radius: 16px;
+  gap: 16px;
+  padding: 22px;
+  border-radius: 20px;
   border: 1.5px solid var(--border-soft);
   background: var(--glass);
   backdrop-filter: var(--glass-filter);
   -webkit-backdrop-filter: var(--glass-filter);
-  cursor: pointer;
-  text-decoration: none;
-  transition: border-color 0.2s, background 0.2s;
+  transition: border-color 0.22s;
+}
+.promo-card--referral:hover { border-color: rgba(124,92,252,0.35); }
+.promo-card--advert:hover   { border-color: rgba(245,158,11,0.35); }
+
+.promo-card__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.promo-card__title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--t1);
+  margin: 0;
+}
+.promo-card__sub {
+  font-size: 0.72rem;
+  color: var(--t3);
+  margin: 2px 0 0;
 }
 
-.qa-card:hover {
-  border-color: rgba(34,197,94,.4);
-  background: rgba(34,197,94,.04);
-}
-
-.qa-card--active {
-  border-color: #22c55e;
-  background: rgba(34,197,94,.06);
-}
-
-.qa-icon {
-  width: 40px; height: 40px;
-  border-radius: 10px;
-  background: rgba(34,197,94,.12);
+.promo-icon {
+  width: 42px; height: 42px;
+  border-radius: 12px;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
 }
+.promo-icon--purple { background: rgba(124,92,252,0.14); color: #a78bfa; }
+.promo-icon--amber  { background: rgba(245,158,11,0.14); color: #f59e0b; }
 
-.qa-label {
-  font-size: 0.85rem;
+/* ── Referral stats ── */
+.ref-stats {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border-soft);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.ref-stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0;
+  gap: 2px;
+}
+.ref-stat__val {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #a78bfa;
+}
+.ref-stat__lbl {
+  font-size: 0.68rem;
+  color: var(--t3);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.ref-stat-divider {
+  width: 1px;
+  height: 36px;
+  background: var(--border-soft);
+  flex-shrink: 0;
+}
+
+/* ── Referral progress ── */
+.ref-progress-wrap { display: flex; flex-direction: column; gap: 6px; }
+.ref-progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: var(--t3);
+}
+.ref-progress-pct { font-weight: 700; color: #a78bfa; }
+.ref-progress-bar {
+  height: 6px;
+  border-radius: 99px;
+  background: rgba(124,92,252,0.12);
+  overflow: hidden;
+}
+.ref-progress-fill {
+  height: 100%;
+  border-radius: 99px;
+  background: linear-gradient(90deg, #7c5cfc, #a78bfa);
+  transition: width 0.6s cubic-bezier(0.4,0,0.2,1);
+}
+.ref-progress-hint {
+  font-size: 0.7rem;
+  color: var(--t3);
+  margin: 0;
+}
+.ref-progress-hint strong { color: var(--t2); }
+
+/* ── Referral code row ── */
+.ref-code-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+}
+.ref-code-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1.5px dashed rgba(124,92,252,0.35);
+  background: rgba(124,92,252,0.06);
+  min-width: 0;
+}
+.ref-code-label { font-size: 0.65rem; color: var(--t3); text-transform: uppercase; letter-spacing: 0.05em; }
+.ref-code-val   { font-size: 0.9rem; font-weight: 700; color: #a78bfa; letter-spacing: 0.06em; }
+.ref-code-actions {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.ref-copy-btn,
+.ref-share-btn {
+  display: flex; align-items: center; gap: 6px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1.5px solid rgba(124,92,252,0.35);
+  background: rgba(124,92,252,0.10);
+  color: #a78bfa;
+  font-size: 0.78rem;
   font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  font-family: 'Satoshi', sans-serif;
+}
+.ref-copy-btn:hover,
+.ref-share-btn:hover { background: rgba(124,92,252,0.20); border-color: #7c5cfc; }
+.ref-copy-btn--copied {
+  border-color: rgba(34,197,94,0.45);
+  background: rgba(34,197,94,0.12);
+  color: #22c55e;
+}
+
+/* ── Advert live badge ── */
+.advert-live-badge {
+  margin-left: auto;
+  display: flex; align-items: center; gap: 5px;
+  padding: 4px 10px;
+  border-radius: 99px;
+  background: rgba(34,197,94,0.10);
+  border: 1px solid rgba(34,197,94,0.25);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #22c55e;
+}
+.advert-live-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: live-pulse 1.8s ease-in-out infinite;
+}
+@keyframes live-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.35; }
+}
+
+/* ── Advert metrics ── */
+.advert-metrics {
+  display: flex;
+  gap: 0;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border-soft);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.advert-metric {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 10px 0;
+}
+.advert-metric__val {
+  font-size: 1rem;
+  font-weight: 700;
   color: var(--t1);
+}
+.advert-metric__lbl {
+  font-size: 0.65rem;
+  color: var(--t3);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ── Advert active slots ── */
+.advert-slots { display: flex; flex-direction: column; gap: 8px; }
+.advert-slot {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border-soft);
+  background: rgba(255,255,255,0.02);
+}
+.advert-slot__dot {
+  width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+}
+.advert-slot__dot--green { background: #22c55e; }
+.advert-slot__dot--amber { background: #f59e0b; }
+.advert-slot__info { display: flex; flex-direction: column; gap: 1px; flex: 1; min-width: 0; }
+.advert-slot__name {
+  font-size: 0.78rem; font-weight: 600; color: var(--t1);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.advert-slot__meta { font-size: 0.67rem; color: var(--t3); }
+.advert-slot__badge {
+  font-size: 0.65rem; font-weight: 700;
+  padding: 3px 8px; border-radius: 99px;
+  background: rgba(34,197,94,0.12);
+  border: 1px solid rgba(34,197,94,0.25);
+  color: #22c55e;
+  white-space: nowrap;
+}
+.advert-slot__badge--pending {
+  background: rgba(245,158,11,0.10);
+  border-color: rgba(245,158,11,0.25);
+  color: #f59e0b;
+}
+
+/* ── Advert CTA ── */
+.advert-cta-btn {
+  display: flex; align-items: center; justify-content: center; gap: 7px;
+  margin-top: auto;
+  padding: 11px 0;
+  border-radius: 12px;
+  border: 1.5px solid rgba(245,158,11,0.35);
+  background: rgba(245,158,11,0.09);
+  color: #f59e0b;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.22s;
+  width: 100%;
+}
+.advert-cta-btn:hover {
+  background: rgba(245,158,11,0.18);
+  border-color: #f59e0b;
+  transform: translateY(-1px);
 }
 
 /* ══════════════════════════════════════
    MOBILE RESPONSIVE
    ══════════════════════════════════════ */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .dashboard       { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .b-balance       { grid-column: span 2; }
+  .b-plan-row      { grid-column: span 2; }
+  .b-recent-txn    { grid-column: span 1; }
+  .b-recent-pay    { grid-column: span 1; }
+  .b-promo-row     { grid-column: span 2; }
+  .bal-actions     { gap: 14px; }
+}
 @media (max-width: 768px) {
 
   /* Page padding */
@@ -784,7 +1123,7 @@ function fmtAmount(amount, currency = 'NGN') {
   .b-plan-row,
   .b-recent-txn,
   .b-recent-pay,
-  .b-quick-actions {
+  .b-promo-row {
     grid-column: span 1;
   }
 
@@ -799,7 +1138,6 @@ function fmtAmount(amount, currency = 'NGN') {
   /* Action buttons — evenly spaced */
   .bal-actions { gap: 0; justify-content: space-between; }
   .ba-btn       { width: 46px; height: 46px; }
-  .ba-btn--primary { width: 52px; height: 52px; }
   .ba-label     { font-size: 0.62rem; }
 
   /* Plan stats: 3 cards side-by-side (they're compact enough) */
@@ -813,14 +1151,21 @@ function fmtAmount(amount, currency = 'NGN') {
   .ps-icon  { width: 24px; height: 24px; }
   .ps-icon svg { width: 12px; height: 12px; }
 
-  /* Payments table — scrollable */
-  .b-recent-pay { overflow-x: auto; }
-  .pay-table { min-width: 340px; }
+  /* Payments table — fits mobile width */
+  .b-recent-pay { overflow: hidden; }
+  .pay-table    { width: 100%; table-layout: fixed; }
+  .pay-table th,
+  .pay-table td { padding: 9px 6px; font-size: 0.75rem; }
+  .pay-table th { font-size: 0.62rem; padding-bottom: 8px; }
+  .pay-method-icon { width: 20px; height: 20px; border-radius: 5px; }
+  .pay-method   { gap: 5px; }
+  .pay-amount   { font-size: 0.78rem; }
 
-  /* Quick actions — 2×2 grid */
-  .b-quick-actions { gap: 10px; }
-  .qa-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-  .qa-card { padding: 14px; border-radius: 14px; }
+  /* Promo row — stack on mobile */
+  .b-promo-row { grid-template-columns: 1fr; gap: 12px; }
+  .promo-card  { padding: 16px; }
+  .ref-stats,
+  .advert-metrics { gap: 0; }
 }
 
 @media (max-width: 400px) {

@@ -427,9 +427,9 @@ function showToast(type, msg) {
 }
 .tut-modal {
   width: 100%; max-width: 620px; max-height: 88vh; overflow-y: auto;
-  background: var(--glass);
+  background: var(--modal-glass);
   backdrop-filter: blur(32px) saturate(200%); -webkit-backdrop-filter: blur(32px) saturate(200%);
-  border: 1px solid var(--border-soft); border-radius: 24px;
+  border: 1px solid var(--modal-border); border-radius: 24px;
   scrollbar-width: none;
 }
 .tut-modal::-webkit-scrollbar { display: none; }
@@ -497,4 +497,19 @@ function showToast(type, msg) {
 }
 .tut-toast--success { background: rgba(34,197,94,.18);   border: 1px solid rgba(34,197,94,.3);   color: #22c55e;  }
 .tut-toast--info    { background: rgba(96,165,250,.18);  border: 1px solid rgba(96,165,250,.3);  color: #60a5fa;  }
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .tut-grid        { grid-template-columns: repeat(3, 1fr); gap: 14px; }
+}
+@media (max-width: 768px) {
+  .tut-header      { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .tut-search      { width: 100%; min-width: unset; }
+  .tut-grid        { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .tut-modal-overlay { padding: 0; align-items: flex-end; }
+  .tut-modal       { max-width: 100%; border-radius: 24px 24px 0 0; max-height: 92vh; }
+  .tut-toast       { bottom: 90px; max-width: calc(100vw - 32px); white-space: normal; }
+}
+@media (max-width: 480px) {
+  .tut-grid { grid-template-columns: 1fr; }
+}
 </style>

@@ -900,4 +900,33 @@ function sendBulkSMS() {
 .sms-toast--error {
   background: rgba(248,113,113,.18); border: 1px solid rgba(248,113,113,.3); color: #f87171;
 }
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .sms-stats         { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .sms-split         { grid-template-columns: 1fr 1fr; gap: 14px; }
+}
+@media (max-width: 768px) {
+  .sms-page          { padding: 0; gap: 16px; }
+  .sms-hdr           { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .sms-stats         { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .sms-tab-bar       { width: 100%; }
+  .sms-tab           { flex: 1; justify-content: center; }
+  .sms-split         { grid-template-columns: 1fr; }
+  .sms-preview-panel { display: none; }
+  .sms-form-card     { padding: 18px 16px; }
+  .sms-schedule-fields { flex-direction: column; gap: 10px; }
+  .sms-history-head  { display: none; }
+  .sms-history-row   {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 6px 12px; padding: 14px 16px;
+  }
+  .sms-history-row > :nth-child(4),
+  .sms-history-row > :nth-child(5) { display: none; }
+  .sms-country-drop  { min-width: 200px; max-width: calc(100vw - 40px); }
+  .sms-toast         { bottom: 90px; max-width: calc(100vw - 32px); }
+}
+@media (max-width: 480px) {
+  .sms-stats { grid-template-columns: 1fr; }
+}
 </style>

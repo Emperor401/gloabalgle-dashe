@@ -151,11 +151,11 @@
     </div><!-- end sidebar__scroll -->
 
     <!-- Upgrade CTA -->
-    <div class="sidebar__upgrade">
+    <div class="sidebar__upgrade" @click="goUpgrade">
       <div class="upgrade__body">
         <p class="upgrade__label">Upgrade to</p>
         <p class="upgrade__title">Premium!</p>
-        <button class="upgrade__btn">Upgrade</button>
+        <button class="upgrade__btn" @click.stop="goUpgrade">Upgrade</button>
       </div>
 
       <!-- Decorative ribbon -->
@@ -194,7 +194,9 @@
     <div class="sidebar__profile">
       <div class="profile__avatar-wrap">
         <img
-          src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=80&h=80&fit=crop&crop=face"
+          src="https://api.dicebear.com/9.x/micah/png?seed=Emperor&backgroundColor=0f3d20&baseColor=f9c9b6&earringsProbability=0&facialHairProbability=0&size=34"
+          width="34"
+          height="34"
           alt="Daniel"
           class="profile__avatar"
         />
@@ -216,11 +218,18 @@
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { useRouter } from 'vue-router'
 import whiteLogo from '../../assets/white.jpeg'
 import darkLogo  from '../../assets/dark.jpeg'
 import { useSidebar } from '../../composables/useSidebar.js'
 
 const { sidebarOpen, closeSidebar } = useSidebar()
+const router = useRouter()
+
+function goUpgrade() {
+  closeSidebar()
+  router.push('/billing')
+}
 
 /* Track theme so the right logo shows */
 const isLight = ref(document.documentElement.getAttribute('data-theme') === 'light')
@@ -282,6 +291,10 @@ const navItems = [
 
 /* ── Mobile close btn (hidden on desktop) ── */
 .sidebar__close-btn { display: none; }
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .sidebar { width: 220px; }
+}
 
 @media (max-width: 768px) {
   .sidebar {
@@ -487,10 +500,14 @@ const navItems = [
 .profile__avatar {
   width: 34px;
   height: 34px;
+  max-width: 34px;
+  max-height: 34px;
   border-radius: 50%;
   object-fit: cover;
+  object-position: center top;
   border: 2px solid var(--accent-border);
   display: block;
+  background: #0f3d20;
 }
 
 .profile__status {
@@ -593,6 +610,8 @@ const navItems = [
 }
 
 .upgrade__btn:hover { opacity: 0.88; transform: translateY(-1px); }
+
+.upgrade__btn {}
 
 .upgrade__deco {
   position: absolute;

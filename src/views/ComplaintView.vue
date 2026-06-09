@@ -305,7 +305,7 @@
 </template>
 
 <script setup>
-import { ref, computed, nextTick } from 'vue'
+import { ref, computed } from 'vue'
 
 /* ── State ── */
 const modal          = ref(false)
@@ -650,7 +650,7 @@ function closeTicket(id) {
   display: flex; align-items: center; justify-content: center; padding: 24px;
 }
 .cmp-modal {
-  background: #111827; border: 1px solid rgba(255,255,255,.1);
+  background: var(--modal-glass); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border: 1px solid var(--modal-border);
   border-radius: 22px; width: 100%; max-width: 560px;
   max-height: 90vh; overflow-y: auto; scrollbar-width: none;
   transition: transform 0.25s ease, opacity 0.25s ease;
@@ -851,4 +851,23 @@ function closeTicket(id) {
   cursor: pointer; font-family: inherit; transition: background 0.2s; margin-top: 4px;
 }
 .cmp-done-btn:hover { background: #16a34a; }
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .cmp-cat-grid    { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .cmp-detail-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+}
+@media (max-width: 768px) {
+  .cmp-header      { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .cmp-new-btn     { width: 100%; justify-content: center; }
+  .cmp-cat-grid    { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .cmp-detail-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .cmp-row-detail  { margin-left: 0; padding: 14px; }
+  .cmp-overlay     { padding: 12px; align-items: flex-end; }
+  .cmp-modal       { max-width: 100%; border-radius: 22px 22px 0 0; max-height: 92vh; }
+}
+@media (max-width: 480px) {
+  .cmp-cat-grid    { grid-template-columns: 1fr; }
+  .cmp-detail-grid { grid-template-columns: 1fr; }
+  .cmp-pri-row     { flex-direction: column; }
+}
 </style>

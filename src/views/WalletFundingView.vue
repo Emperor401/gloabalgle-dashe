@@ -30,7 +30,7 @@
         </div>
       </div>
 
-      <button class="wf-history-btn" @click="showHistory = !showHistory">
+      <button class="wf-history-btn" @click="$router.push('/transactions')">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
           stroke-width="2" stroke-linecap="round">
           <polyline points="1 4 1 10 7 10"/>
@@ -212,7 +212,6 @@ import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
-const showHistory  = ref(false)
 const activeProvider = ref(null)
 
 const providers = [
@@ -274,7 +273,6 @@ function selectCoin(coin) {
 
 <style scoped>
 .wf-page {
-  padding: 28px 32px;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -459,8 +457,10 @@ function selectCoin(coin) {
   display: flex; align-items: center; justify-content: center; padding: 24px;
 }
 .modal-box {
-  background: var(--bg-card);
-  border: 1px solid var(--border-soft);
+  background: var(--modal-glass);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid var(--modal-border);
   border-radius: 24px;
   padding: 28px;
   width: 100%; max-width: 420px;
@@ -513,5 +513,57 @@ function selectCoin(coin) {
   font-size: 0.74rem; color: var(--t3); margin: 0;
   padding-top: 8px; border-top: 1px solid var(--border-soft);
   line-height: 1.5;
+}
+
+/* ── Tablet ── */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .wf-page        { gap: 20px; }
+  .wf-grid        { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .wf-howto-grid  { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .wf-plan-card   { padding: 20px 22px; }
+  .wf-howto       { padding: 20px 22px; }
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .wf-page        { gap: 16px; }
+  .wf-title       { font-size: 1.3rem; }
+  .wf-sub         { max-width: 100%; }
+
+  /* header stacks vertically; history button goes full-width */
+  .wf-header      { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .wf-history-btn { width: 100%; justify-content: center; }
+
+  /* plan card stacks; right side left-aligns and stretches full width */
+  .wf-plan-card   { flex-direction: column; padding: 18px 16px; gap: 16px; }
+  .wf-plan-right  { width: 100%; flex-direction: row; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .wf-balance-label { display: none; }
+  .wf-balance-val { font-size: 1.3rem; }
+  .wf-fund-btn    { margin-left: auto; }
+
+  /* provider cards: full-width 1-col (2-col is too cramped for logo+tags+arrow) */
+  .wf-grid        { grid-template-columns: 1fr; gap: 10px; }
+
+  /* how it works: 1 col */
+  .wf-howto-grid  { grid-template-columns: 1fr; gap: 14px; }
+  .wf-howto       { padding: 18px 16px; }
+
+  /* modal: bottom sheet */
+  .modal-overlay  { padding: 0; align-items: flex-end; }
+  .modal-box      { max-width: 100%; border-radius: 22px 22px 0 0; max-height: 90vh; overflow-y: auto; }
+}
+
+/* ── Small Mobile ── */
+@media (max-width: 480px) {
+  .wf-page        { gap: 14px; }
+  .wf-title       { font-size: 1.15rem; }
+  .wf-plan-value  { font-size: 1.4rem; }
+  .wf-plan-card   { padding: 14px; }
+  .wf-card        { padding: 16px; gap: 10px; }
+  .wf-card-logo   { width: 42px; height: 42px; border-radius: 12px; }
+  .wf-card-name   { font-size: 0.84rem; }
+  .wf-header-icon { width: 42px; height: 42px; border-radius: 12px; }
+  .modal-coin-row { padding: 12px; gap: 10px; }
+  .modal-fund-btn { padding: 7px 10px; font-size: 0.7rem; }
 }
 </style>

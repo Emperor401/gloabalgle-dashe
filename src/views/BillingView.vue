@@ -351,9 +351,6 @@
 
 <script setup>
 import { ref, computed } from 'vue'
-import { useRouter } from 'vue-router'
-
-const router = useRouter()
 
 /* ── State ── */
 const currentPlan = ref('Starter')
@@ -719,7 +716,7 @@ function showToast(type, msg) {
   display: flex; align-items: center; justify-content: center; padding: 24px;
 }
 .bill-modal {
-  background: var(--bg-card); border: 1px solid var(--border-soft);
+  background: var(--modal-glass); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border: 1px solid var(--modal-border);
   border-radius: 24px; padding: 28px;
   width: 100%; max-width: 580px; max-height: 88vh; overflow-y: auto;
   display: flex; flex-direction: column; gap: 0;
@@ -837,4 +834,32 @@ function showToast(type, msg) {
 .bill-toast--success { background: rgba(34,197,94,.18);  border: 1px solid rgba(34,197,94,.3);  color: #22c55e;  }
 .bill-toast--error   { background: rgba(248,113,113,.18); border: 1px solid rgba(248,113,113,.3); color: #f87171; }
 .bill-toast--info    { background: rgba(96,165,250,.18);  border: 1px solid rgba(96,165,250,.3);  color: #60a5fa; }
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .bill-stats      { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .bill-plans-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+  .bill-switch-hdr { flex-wrap: wrap; gap: 10px; }
+}
+@media (max-width: 768px) {
+  .bill-page       { padding: 0; gap: 18px; }
+  .bill-hdr        { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .bill-hist-btn   { width: 100%; justify-content: center; }
+  .bill-stats      { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .bill-stat       { padding: 14px 16px; }
+  .bill-stat__val  { font-size: 1.2rem; }
+  .bill-switch-hdr { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .bill-switch-actions { flex-wrap: wrap; width: 100%; }
+  .bill-cycle-toggle   { flex: 1; }
+  .bill-redeem-btn     { flex: 1; justify-content: center; }
+  .bill-plans-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .bill-plan-card  { padding: 18px 14px; }
+  .bill-plan-price { font-size: 1.4rem; }
+  .bill-overlay    { padding: 12px; align-items: flex-end; }
+  .bill-modal      { max-width: 100%; border-radius: 22px 22px 0 0; max-height: 90vh; }
+  .bill-toast      { bottom: 90px; max-width: calc(100vw - 32px); white-space: normal; }
+}
+@media (max-width: 480px) {
+  .bill-stats      { grid-template-columns: 1fr; }
+  .bill-plans-grid { grid-template-columns: 1fr; }
+}
 </style>

@@ -995,10 +995,27 @@ function copyText(text) {
   background: rgba(34,197,94,.1); border-color: rgba(34,197,94,.3); color: #22c55e;
 }
 
+@media (max-width: 1024px) and (min-width: 769px) {
+  .set-layout      { grid-template-columns: 220px 1fr !important; }
+  .set-ref-stats   { grid-template-columns: 1fr 1fr !important; }
+}
 @media (max-width: 768px) {
-  .set-page   { padding: 16px !important; }
-  .set-layout { grid-template-columns: 1fr !important; }
-  .set-left   { display: none !important; }
+  .set-page        { padding: 16px !important; }
+  .set-layout      { grid-template-columns: 1fr !important; }
+  .set-left        { display: none !important; }
   .set-mobile-tabs { display: flex !important; }
+  .set-ref-stats   { grid-template-columns: 1fr 1fr !important; }
+  .set-smtp-row    { flex-direction: column !important; }
+  .set-login-head  { display: none !important; }
+  .set-login-row   {
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: auto auto !important;
+    gap: 6px 12px !important;
+  }
+  .set-login-row > :nth-child(4) { display: none; }
+}
+@media (max-width: 480px) {
+  .set-ref-stats   { grid-template-columns: 1fr !important; }
+  .set-login-row   { grid-template-columns: 1fr !important; }
 }
 </style>

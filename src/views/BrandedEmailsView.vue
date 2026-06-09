@@ -72,27 +72,29 @@
           <p class="panel-sub">Latest emails dispatched to customers</p>
         </div>
       </div>
-      <table class="sends-table">
-        <thead><tr>
-          <th>Recipient</th><th>Template</th><th>Sent At</th><th>Status</th>
-        </tr></thead>
-        <tbody>
-          <tr v-for="r in recentSends" :key="r.id">
-            <td>
-              <div class="recipient-cell">
-                <div class="avatar" :style="{ background: r.avatarBg }">{{ r.initials }}</div>
-                <div>
-                  <p class="r-name">{{ r.name }}</p>
-                  <p class="r-email">{{ r.email }}</p>
+      <div class="sends-table-wrap">
+        <table class="sends-table">
+          <thead><tr>
+            <th>Recipient</th><th>Template</th><th>Sent At</th><th>Status</th>
+          </tr></thead>
+          <tbody>
+            <tr v-for="r in recentSends" :key="r.id">
+              <td>
+                <div class="recipient-cell">
+                  <div class="avatar" :style="{ background: r.avatarBg }">{{ r.initials }}</div>
+                  <div>
+                    <p class="r-name">{{ r.name }}</p>
+                    <p class="r-email">{{ r.email }}</p>
+                  </div>
                 </div>
-              </div>
-            </td>
-            <td><span class="r-template">{{ r.template }}</span></td>
-            <td><span class="r-time">{{ r.time }}</span></td>
-            <td><span :class="['r-status', `r-status--${r.status}`]">{{ r.status }}</span></td>
-          </tr>
-        </tbody>
-      </table>
+              </td>
+              <td><span class="r-template">{{ r.template }}</span></td>
+              <td><span class="r-time">{{ r.time }}</span></td>
+              <td><span :class="['r-status', `r-status--${r.status}`]">{{ r.status }}</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
   </div>
@@ -193,4 +195,38 @@ const recentSends = [
 .r-status--delivered { color:var(--accent); background:var(--accent-dim); border:1px solid var(--accent-border); }
 .r-status--opened    { color:#60a5fa; background:rgba(96,165,250,0.12); border:1px solid rgba(96,165,250,0.25); }
 .r-status--failed    { color:#f87171; background:rgba(248,113,113,0.12); border:1px solid rgba(248,113,113,0.25); }
+/* ══ TABLET (769px – 1024px) ══ */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .template-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .header-meta   { gap: 10px; }
+  .stat-pill     { min-width: 100px; padding: 10px 14px; }
+}
+
+/* ══ MOBILE (≤ 768px) ══ */
+@media (max-width: 768px) {
+  .be-page       { gap: 16px; }
+
+  /* Header stacks vertically */
+  .be-header     { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .header-meta   { margin-left: 0; width: 100%; }
+  .stat-pill     { flex: 1; min-width: unset; padding: 10px 14px; }
+
+  /* Filter tabs scroll horizontally */
+  .filter-bar    { overflow-x: auto; -webkit-overflow-scrolling: touch; flex-wrap: nowrap; padding-bottom: 2px; }
+  .ftab          { white-space: nowrap; flex-shrink: 0; }
+
+  /* Template cards: 2-col on medium mobile */
+  .template-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+
+  /* Recent Sends table scrolls */
+  .glass-panel   { padding: 16px; }
+  .sends-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .sends-table   { min-width: 480px; }
+}
+
+/* ══ SMALL MOBILE (≤ 480px) ══ */
+@media (max-width: 480px) {
+  .template-grid { grid-template-columns: 1fr; gap: 10px; }
+  .be-title      { font-size: 1.2rem; }
+}
 </style>

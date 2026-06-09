@@ -1,6 +1,6 @@
 <!-- src/views/SpoofCallingView.vue -->
 <template>
-  <div class="sc-page" @click="closeDropdowns">
+  <div class="sc-page">
 
     <!-- Back -->
     <button class="sc-back" @click="router.push('/tools')">
@@ -503,8 +503,6 @@ const canCall = computed(() => {
 })
 
 /* ── Methods ── */
-function closeDropdowns() {}
-
 function refreshCalls() {
   showToast('success', 'Call history refreshed.')
 }
@@ -658,9 +656,12 @@ onBeforeUnmount(() => {
   background: none; border: none; border-radius: 10px;
   padding: 9px 18px; font-size: 0.82rem; font-weight: 600;
   color: var(--t3); cursor: pointer; font-family: inherit; transition: all 0.18s;
+  white-space: nowrap; flex-shrink: 0;
 }
 .sc-tab:hover    { color: var(--t1); background: rgba(255,255,255,.05); }
 .sc-tab--active  { background: rgba(167,139,250,.12); color: #a78bfa; border: 1px solid rgba(167,139,250,.25); }
+/* hide scrollbar on the tab bar when overflowing */
+.sc-tab-bar::-webkit-scrollbar { display: none; }
 
 /* ── Form card ── */
 .sc-form-card {
@@ -864,7 +865,7 @@ onBeforeUnmount(() => {
 }
 .sc-call-modal {
   position: relative;
-  background: var(--bg-card); border: 1px solid var(--border-soft);
+  background: var(--modal-glass); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border: 1px solid var(--modal-border);
   border-radius: 28px; padding: 44px 40px 36px;
   width: 100%; max-width: 380px;
   display: flex; flex-direction: column; align-items: center; gap: 14px;
@@ -900,8 +901,8 @@ onBeforeUnmount(() => {
   animation: pulse-live 1.6s ease-in-out infinite;
 }
 @keyframes pulse-live {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,.3);  }
-  50%       { box-shadow: 0 0 0 12px rgba(34,197,94,0); }
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.6; }
 }
 
 .sc-call-modal-status { font-size: 0.78rem; font-weight: 700; color: var(--t3); text-transform: uppercase; letter-spacing: 0.1em; }
@@ -981,4 +982,37 @@ onBeforeUnmount(() => {
 }
 .sc-toast--success { background: rgba(34,197,94,.18);  border: 1px solid rgba(34,197,94,.3);  color: #22c55e;  }
 .sc-toast--error   { background: rgba(248,113,113,.18); border: 1px solid rgba(248,113,113,.3); color: #f87171; }
+
+/* ── Tablet ── */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .sc-stats      { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .sc-phone-row  { grid-template-columns: 1fr 1fr; gap: 14px; }
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .sc-page       { padding: 0; gap: 16px; }
+  .sc-hdr        { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .sc-hdr-title  { font-size: 1.3rem; }
+  .sc-refresh-btn { align-self: flex-start; }
+
+  /* tab bar: full-width, horizontally scrollable, no scrollbar visible */
+  .sc-tab-bar    { width: 100%; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; }
+  .sc-tab        { padding: 8px 14px; font-size: 0.78rem; }
+
+  .sc-stats      { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .sc-phone-row  { grid-template-columns: 1fr; gap: 12px; }
+  .sc-form-card  { padding: 18px 16px; }
+  .sc-overlay    { padding: 0; align-items: flex-end; }
+  .sc-call-modal { max-width: 100%; border-radius: 22px 22px 0 0; max-height: 90vh; overflow-y: auto; }
+  .sc-toast      { bottom: 90px; max-width: calc(100vw - 32px); white-space: normal; }
+}
+
+/* ── Small Mobile ── */
+@media (max-width: 480px) {
+  .sc-stats      { grid-template-columns: 1fr; }
+  .sc-hdr-title  { font-size: 1.15rem; }
+  .sc-tab        { padding: 8px 12px; gap: 5px; }
+  .sc-tab svg    { display: none; }
+}
 </style>

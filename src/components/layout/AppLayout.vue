@@ -114,13 +114,13 @@ import PageLoader from '../ui/PageLoader.vue'
   padding: 96px 28px 32px;
 }
 
+@media (max-width: 1024px) and (min-width: 769px) {
+  .app-layout__main  { margin-left: 220px; }
+  .app-layout__content { padding: 88px 20px 32px; }
+}
 @media (max-width: 768px) {
-  .app-layout__main {
-    margin-left: 0;
-  }
-  .app-layout__content {
-    padding: 80px 16px 28px;
-  }
+  .app-layout__main  { margin-left: 0; }
+  .app-layout__content { padding: 80px 16px 100px; }
 }
 
 .page-enter-active,

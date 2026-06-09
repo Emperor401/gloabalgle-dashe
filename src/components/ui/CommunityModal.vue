@@ -108,10 +108,10 @@ onBeforeUnmount(() => {
 /* Card */
 .modal-card {
   position: relative;
-  background: var(--glass);
-  backdrop-filter: var(--glass-filter);
-  -webkit-backdrop-filter: var(--glass-filter);
-  border: 1px solid var(--border);
+  background: var(--modal-glass);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid var(--modal-border);
   border-radius: 24px;
   padding: 36px 32px 28px;
   width: 100%;

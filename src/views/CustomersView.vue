@@ -126,4 +126,15 @@ const services = [
   line-height: 1.55;
   margin: 0;
 }
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .service-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+}
+@media (max-width: 768px) {
+  .service-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .service-card { padding: 20px 18px; }
+}
+@media (max-width: 480px) {
+  .service-grid { grid-template-columns: 1fr; }
+}
 </style>

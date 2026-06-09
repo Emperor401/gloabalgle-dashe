@@ -208,7 +208,7 @@ const deployedSites = [
 
 /* Launch Modal */
 .modal-backdrop { position:fixed; inset:0; z-index:10000; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.5); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); }
-.launch-modal { background:var(--glass); backdrop-filter:var(--glass-filter); -webkit-backdrop-filter:var(--glass-filter); border:1px solid var(--border); border-radius:22px; padding:28px; width:100%; max-width:480px; display:flex; flex-direction:column; gap:20px; }
+.launch-modal { background:var(--modal-glass); backdrop-filter:blur(24px) saturate(180%); -webkit-backdrop-filter:blur(24px) saturate(180%); border:1px solid var(--modal-border); border-radius:22px; padding:28px; width:100%; max-width:480px; display:flex; flex-direction:column; gap:20px; }
 .launch-modal__head { display:flex; align-items:flex-start; gap:12px; }
 .launch-modal__icon { width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
 .launch-modal__title { font-size:1rem; font-weight:700; color:var(--t1); margin:0 0 3px; }
@@ -239,4 +239,25 @@ const deployedSites = [
 .modal-leave-active { transition:opacity 0.18s ease, transform 0.18s ease; }
 .modal-enter-from { opacity:0; transform:scale(0.9) translateY(12px); }
 .modal-leave-to { opacity:0; transform:scale(0.96); }
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .sites-grid  { grid-template-columns: 1fr 1fr; gap: 14px; }
+  .stats-row   { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .panel-head  { flex-wrap: wrap; gap: 10px; }
+}
+@media (max-width: 768px) {
+  .sites-grid  { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .stats-row   { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .stat-chip   { padding: 12px 14px; }
+  .panel-head  { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .btn-new-site { width: 100%; justify-content: center; }
+  .deployed-item { flex-wrap: wrap; gap: 10px; }
+  .deployed-item__meta { align-items: flex-start; }
+  .launch-modal { padding: 20px; border-radius: 18px; margin: 12px; }
+  .modal-backdrop { padding: 12px; align-items: flex-end; }
+}
+@media (max-width: 480px) {
+  .sites-grid { grid-template-columns: 1fr; }
+  .stats-row  { grid-template-columns: 1fr; }
+}
 </style>

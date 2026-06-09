@@ -51,6 +51,7 @@
           <div>
             <h2 class="help-section-title">Frequently Asked Questions</h2>
             <p class="help-section-sub">
+        
               {{ filteredFaqs.length }} result{{ filteredFaqs.length !== 1 ? 's' : '' }}
               <span v-if="searchQuery"> for "<strong>{{ searchQuery }}</strong>"</span>
             </p>
@@ -556,4 +557,15 @@ function showToast(type, msg) {
 }
 .help-toast--success { background: rgba(34,197,94,.18);  border: 1px solid rgba(34,197,94,.3);  color: #22c55e; }
 .help-toast--info    { background: rgba(96,165,250,.18); border: 1px solid rgba(96,165,250,.3); color: #60a5fa; }
+@media (max-width: 1024px) and (min-width: 769px) {
+  .help-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .help-faq-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+}
+
+@media (max-width: 768px) {
+  .help-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .help-grid     { grid-template-columns: 1fr; gap: 12px; }
+  .help-faq-grid { grid-template-columns: 1fr; gap: 10px; }
+  .help-search   { width: 100%; }
+}
 </style>

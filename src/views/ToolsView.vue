@@ -85,11 +85,9 @@ const tools = [
 
 <style scoped>
 .tools-page {
-  padding: 28px 32px;
   display: flex;
   flex-direction: column;
   gap: 28px;
-  min-height: 100vh;
 }
 
 /* ── Header ── */
@@ -111,7 +109,7 @@ const tools = [
 /* ── Grid ── */
 .tools-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 18px;
 }
 
@@ -192,5 +190,33 @@ const tools = [
 .tool-card:hover .tc-arrow {
   color: #22c55e;
   transform: translateX(3px);
+}
+
+/* ── Tablet ── */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .tools-page  { gap: 22px; }
+  .tools-grid  { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .tool-card   { padding: 20px; }
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .tools-page    { gap: 18px; }
+  .tools-title   { font-size: 1.35rem; }
+  .tools-grid    { grid-template-columns: 1fr; gap: 10px; }
+  .tool-card     { flex-direction: row; align-items: center; padding: 18px 20px; gap: 14px; }
+  .tc-icon-wrap  { flex-shrink: 0; }
+  .tc-body       { flex: 1; min-width: 0; }
+  .tc-desc       { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .tc-arrow      { align-self: center; flex-shrink: 0; margin-left: auto; }
+}
+
+/* ── Small Mobile ── */
+@media (max-width: 480px) {
+  .tools-page   { gap: 14px; }
+  .tools-title  { font-size: 1.2rem; }
+  .tool-card    { padding: 16px; gap: 12px; }
+  .tc-icon-wrap { width: 42px; height: 42px; border-radius: 12px; }
+  .tc-title     { font-size: 0.92rem; }
 }
 </style>

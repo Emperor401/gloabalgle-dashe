@@ -233,8 +233,8 @@ const cards = [
   backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
 }
 .modal-card {
-  background: var(--glass); backdrop-filter: var(--glass-filter); -webkit-backdrop-filter: var(--glass-filter);
-  border: 1px solid var(--border); border-radius: 22px;
+  background: var(--modal-glass); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid var(--modal-border); border-radius: 22px;
   padding: 28px; width: 100%; max-width: 520px;
   display: flex; flex-direction: column; gap: 20px;
 }
@@ -250,7 +250,7 @@ const cards = [
 .form-group { display: flex; flex-direction: column; gap: 6px; }
 .form-label { font-size: 0.68rem; font-weight: 700; color: var(--t3); text-transform: uppercase; letter-spacing: 0.06em; }
 .form-input {
-  background: var(--glass-2); border: 1px solid var(--border-soft); border-radius: 9px;
+  background: var(--modal-input); border: 1px solid var(--border-soft); border-radius: 9px;
   padding: 10px 13px; color: var(--t1); font-family: 'Satoshi', sans-serif; font-size: 0.82rem;
   outline: none; transition: border-color 0.2s ease; width: 100%;
 }
@@ -268,4 +268,30 @@ const cards = [
 .modal-leave-active { transition: opacity 0.18s ease, transform 0.18s ease; }
 .modal-enter-from   { opacity: 0; transform: scale(0.9) translateY(16px); }
 .modal-leave-to     { opacity: 0; transform: scale(0.96); }
+/* ── Tablet ── */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .gen-grid   { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .modal-card { max-width: 480px; margin: 0 24px; }
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .gen-page       { gap: 18px; }
+  .gen-title      { font-size: 1.3rem; }
+  .gen-grid       { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .gen-card       { padding: 20px 18px 22px; gap: 10px; }
+  .modal-backdrop { align-items: flex-end; padding: 0; }
+  .modal-card     { max-width: 100%; border-radius: 22px 22px 0 0; max-height: 90vh; overflow-y: auto; margin: 0; }
+  .modal-form     { grid-template-columns: 1fr; gap: 10px; }
+  .recent-item__amount { display: none; }
+}
+
+/* ── Small Mobile ── */
+@media (max-width: 480px) {
+  .gen-grid    { grid-template-columns: 1fr; gap: 10px; }
+  .gen-title   { font-size: 1.15rem; }
+  .gen-card    { padding: 18px 16px 20px; }
+  .recent-item { padding: 10px 8px; gap: 8px; }
+  .recent-item__status { display: none; }
+}
 </style>

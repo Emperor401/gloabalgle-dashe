@@ -49,7 +49,7 @@ export const customers = [
     status: 'Active',
     location: 'Accra, Ghana',
     joined: 'Jan 12, 2023',
-    avatar: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=80&h=80&fit=crop&crop=face',
+    avatar: 'https://api.dicebear.com/9.x/micah/png?seed=AishaMensah&backgroundColor=7c3aed&baseColor=f9c9b6&earringsProbability=0&facialHairProbability=0&size=80',
   },
   {
     id: 2,
@@ -60,7 +60,7 @@ export const customers = [
     status: 'Active',
     location: 'Lagos, Nigeria',
     joined: 'Mar 4, 2023',
-    avatar: 'https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?w=80&h=80&fit=crop&crop=face',
+    avatar: 'https://api.dicebear.com/9.x/micah/png?seed=JamesOkafor&backgroundColor=0c4a6e&baseColor=ae5d29&facialHairProbability=40&size=80',
   },
   {
     id: 3,
@@ -71,7 +71,7 @@ export const customers = [
     status: 'Active',
     location: 'Copenhagen, Denmark',
     joined: 'Feb 18, 2023',
-    avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&fit=crop&crop=face',
+    avatar: 'https://api.dicebear.com/9.x/micah/png?seed=SofiaAndersen&backgroundColor=9d174d&baseColor=f9c9b6&earringsProbability=0&facialHairProbability=0&size=80',
   },
   {
     id: 4,
@@ -82,7 +82,7 @@ export const customers = [
     status: 'Suspended',
     location: 'Mumbai, India',
     joined: 'Apr 29, 2023',
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face',
+    avatar: 'https://api.dicebear.com/9.x/micah/png?seed=RaviPatel&backgroundColor=92400e&baseColor=d08b5b&facialHairProbability=50&size=80',
   },
   {
     id: 5,
@@ -93,7 +93,7 @@ export const customers = [
     status: 'Active',
     location: 'Berlin, Germany',
     joined: 'Jun 7, 2023',
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face',
+    avatar: 'https://api.dicebear.com/9.x/micah/png?seed=LenaMuller&backgroundColor=064e3b&baseColor=f9c9b6&earringsProbability=0&facialHairProbability=0&size=80',
   },
   {
     id: 6,
@@ -104,7 +104,7 @@ export const customers = [
     status: 'Pending',
     location: 'Mexico City, Mexico',
     joined: 'Aug 15, 2023',
-    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face',
+    avatar: 'https://api.dicebear.com/9.x/micah/png?seed=CarlosRivera&backgroundColor=1e3a8a&baseColor=d08b5b&facialHairProbability=45&size=80',
   },
   {
     id: 7,
@@ -115,7 +115,7 @@ export const customers = [
     status: 'Active',
     location: 'Tokyo, Japan',
     joined: 'Sep 2, 2023',
-    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&crop=face',
+    avatar: 'https://api.dicebear.com/9.x/micah/png?seed=YukiTanaka&backgroundColor=4c0519&baseColor=f9c9b6&earringsProbability=0&facialHairProbability=0&size=80',
   },
   {
     id: 8,
@@ -126,7 +126,7 @@ export const customers = [
     status: 'Active',
     location: 'Dakar, Senegal',
     joined: 'Oct 20, 2023',
-    avatar: 'https://images.unsplash.com/photo-1523824921871-d6f1a15151f1?w=80&h=80&fit=crop&crop=face',
+    avatar: 'https://api.dicebear.com/9.x/micah/png?seed=AmaraDiallo&backgroundColor=1c1917&baseColor=ae5d29&earringsProbability=0&facialHairProbability=0&size=80',
   },
   {
     id: 9,
@@ -137,7 +137,7 @@ export const customers = [
     status: 'Active',
     location: 'New York, USA',
     joined: 'Nov 11, 2023',
-    avatar: 'https://images.unsplash.com/photo-1463453091185-61582044d556?w=80&h=80&fit=crop&crop=face',
+    avatar: 'https://api.dicebear.com/9.x/micah/png?seed=NoahWilliams&backgroundColor=14532d&baseColor=f9c9b6&facialHairProbability=35&size=80',
   },
   {
     id: 10,
@@ -148,7 +148,7 @@ export const customers = [
     status: 'Suspended',
     location: 'Dubai, UAE',
     joined: 'Dec 3, 2023',
-    avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=80&h=80&fit=crop&crop=face',
+    avatar: 'https://api.dicebear.com/9.x/micah/png?seed=FatimaAlRashid&backgroundColor=312e81&baseColor=d08b5b&earringsProbability=0&facialHairProbability=0&size=80',
   },
 ]
 
@@ -156,7 +156,7 @@ export const transactions = [
   {
     id: 'TXN-8821',
     customer: 'Aisha Mensah',
-    avatar: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=40&h=40&fit=crop&crop=face',
+    avatar: 'https://api.dicebear.com/9.x/micah/png?seed=AishaMensah&backgroundColor=7c3aed&baseColor=f9c9b6&earringsProbability=0&facialHairProbability=0&size=40',
     type: 'Transfer',
     amount: '+$2,400.00',
     date: 'Jun 5, 2026',
@@ -166,7 +166,7 @@ export const transactions = [
   {
     id: 'TXN-8822',
     customer: 'James Okafor',
-    avatar: 'https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?w=40&h=40&fit=crop&crop=face',
+    avatar: 'https://api.dicebear.com/9.x/micah/png?seed=JamesOkafor&backgroundColor=0c4a6e&baseColor=ae5d29&facialHairProbability=40&size=40',
     type: 'Withdrawal',
     amount: '-$500.00',
     date: 'Jun 5, 2026',
@@ -176,7 +176,7 @@ export const transactions = [
   {
     id: 'TXN-8823',
     customer: 'Sofia Andersen',
-    avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=40&h=40&fit=crop&crop=face',
+    avatar: 'https://api.dicebear.com/9.x/micah/png?seed=SofiaAndersen&backgroundColor=9d174d&baseColor=f9c9b6&earringsProbability=0&facialHairProbability=0&size=40',
     type: 'Loan Payment',
     amount: '-$1,200.00',
     date: 'Jun 4, 2026',
@@ -186,7 +186,7 @@ export const transactions = [
   {
     id: 'TXN-8824',
     customer: 'Ravi Patel',
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face',
+    avatar: 'https://api.dicebear.com/9.x/micah/png?seed=RaviPatel&backgroundColor=92400e&baseColor=d08b5b&facialHairProbability=50&size=40',
     type: 'Deposit',
     amount: '+$3,000.00',
     date: 'Jun 4, 2026',
@@ -196,7 +196,7 @@ export const transactions = [
   {
     id: 'TXN-8825',
     customer: 'Lena Müller',
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&crop=face',
+    avatar: 'https://api.dicebear.com/9.x/micah/png?seed=LenaMuller&backgroundColor=064e3b&baseColor=f9c9b6&earringsProbability=0&facialHairProbability=0&size=40',
     type: 'Transfer',
     amount: '+$7,500.00',
     date: 'Jun 3, 2026',
@@ -206,7 +206,7 @@ export const transactions = [
   {
     id: 'TXN-8826',
     customer: 'Carlos Rivera',
-    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=40&h=40&fit=crop&crop=face',
+    avatar: 'https://api.dicebear.com/9.x/micah/png?seed=CarlosRivera&backgroundColor=1e3a8a&baseColor=d08b5b&facialHairProbability=45&size=40',
     type: 'Withdrawal',
     amount: '-$250.00',
     date: 'Jun 3, 2026',
@@ -216,7 +216,7 @@ export const transactions = [
   {
     id: 'TXN-8827',
     customer: 'Yuki Tanaka',
-    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=40&h=40&fit=crop&crop=face',
+    avatar: 'https://api.dicebear.com/9.x/micah/png?seed=YukiTanaka&backgroundColor=4c0519&baseColor=f9c9b6&earringsProbability=0&facialHairProbability=0&size=40',
     type: 'Deposit',
     amount: '+$10,000.00',
     date: 'Jun 2, 2026',
@@ -226,7 +226,7 @@ export const transactions = [
   {
     id: 'TXN-8828',
     customer: 'Amara Diallo',
-    avatar: 'https://images.unsplash.com/photo-1523824921871-d6f1a15151f1?w=40&h=40&fit=crop&crop=face',
+    avatar: 'https://api.dicebear.com/9.x/micah/png?seed=AmaraDiallo&backgroundColor=1c1917&baseColor=ae5d29&earringsProbability=0&facialHairProbability=0&size=40',
     type: 'Loan Payment',
     amount: '-$400.00',
     date: 'Jun 2, 2026',
@@ -251,10 +251,10 @@ export const revenueData = [
 ]
 
 export const notifications = [
-  { id: 1, type: 'warning', title: 'KYC Submitted',         message: 'New customer KYC is pending your review.',      time: '2 min ago',  read: false },
-  { id: 2, type: 'error',   title: 'Transaction Failed',    message: 'TXN-8826 by Carlos Rivera could not be processed.', time: '15 min ago', read: false },
-  { id: 3, type: 'success', title: 'Loan Approved',         message: 'Loan #L-4421 has been approved successfully.',  time: '1 hr ago',   read: false },
-  { id: 4, type: 'info',    title: 'System Maintenance',    message: 'Scheduled downtime tonight at 12:00 AM WAT.',   time: '3 hr ago',   read: true  },
-  { id: 5, type: 'success', title: 'Deposit Confirmed',     message: 'Ravi Patel deposit of ₦3,000 confirmed.',       time: '5 hr ago',   read: true  },
-  { id: 6, type: 'warning', title: 'Suspicious Activity',   message: 'Unusual login detected on account GLB-010.',    time: 'Yesterday',  read: true  },
+  { id: 1, type: 'warning', title: 'KYC Submitted',         message: 'New customer KYC is pending your review.',         time: '2 min ago',  read: true },
+  { id: 2, type: 'error',   title: 'Transaction Failed',    message: 'TXN-8826 by Carlos Rivera could not be processed.', time: '15 min ago', read: true },
+  { id: 3, type: 'success', title: 'Loan Approved',         message: 'Loan #L-4421 has been approved successfully.',      time: '1 hr ago',   read: true },
+  { id: 4, type: 'info',    title: 'System Maintenance',    message: 'Scheduled downtime tonight at 12:00 AM WAT.',       time: '3 hr ago',   read: true },
+  { id: 5, type: 'success', title: 'Deposit Confirmed',     message: 'Ravi Patel deposit of ₦3,000 confirmed.',           time: '5 hr ago',   read: true },
+  { id: 6, type: 'warning', title: 'Suspicious Activity',   message: 'Unusual login detected on account GLB-010.',        time: 'Yesterday',  read: true },
 ]

@@ -487,7 +487,6 @@ function confirmFunds() {
 
 function selectPlan(planId) {
   currentPlan.value = planId
-  const price = plans.find(p => p.id === planId)?.price ?? ''
 
   transactions.value.unshift({
     id:          Date.now(),
@@ -705,7 +704,7 @@ function showToast(type, msg) {
   display: flex; align-items: center; justify-content: center; padding: 24px;
 }
 .w-modal {
-  background: var(--bg-card); border: 1px solid var(--border-soft);
+  background: var(--modal-glass); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border: 1px solid var(--modal-border);
   border-radius: 24px; padding: 28px;
   width: 100%; max-width: 460px;
   display: flex; flex-direction: column; gap: 0;
@@ -873,4 +872,36 @@ function showToast(type, msg) {
 }
 .w-toast--success { background: rgba(34,197,94,.18);  border: 1px solid rgba(34,197,94,.3);  color: #22c55e;  }
 .w-toast--error   { background: rgba(248,113,113,.18); border: 1px solid rgba(248,113,113,.3); color: #f87171; }
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .w-stats         { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .w-plans-grid    { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .w-hdr           { flex-wrap: wrap; gap: 10px; }
+}
+@media (max-width: 768px) {
+  .wallet-page     { padding: 0; gap: 16px; }
+  .w-hdr           { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .w-hdr-actions   { width: 100%; }
+  .w-switch-btn, .w-add-btn { flex: 1; justify-content: center; }
+  .w-stats         { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .w-stat          { padding: 14px 16px; }
+  .w-stat__val     { font-size: 1.3rem; }
+  .w-auto-row      { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .w-txn-hdr       { padding: 16px; }
+  .w-txn-filters   { overflow-x: auto; gap: 4px; }
+  .w-txn-head      { display: none; }
+  .w-txn-row       { grid-template-columns: 44px 1fr 90px; padding: 12px 16px; }
+  .w-txn-row > :nth-child(3) { display: none; }
+  .w-txn-row > :nth-child(5) { display: none; }
+  .w-plans-grid    { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .w-plan-card     { padding: 16px 14px; }
+  .w-overlay       { padding: 12px; align-items: flex-end; }
+  .w-modal         { max-width: 100%; border-radius: 22px 22px 0 0; max-height: 90vh; }
+  .w-modal--wide   { max-width: 100%; }
+  .w-toast         { bottom: 90px; max-width: calc(100vw - 32px); white-space: normal; }
+}
+@media (max-width: 480px) {
+  .w-stats      { grid-template-columns: 1fr; }
+  .w-plans-grid { grid-template-columns: 1fr; }
+}
 </style>

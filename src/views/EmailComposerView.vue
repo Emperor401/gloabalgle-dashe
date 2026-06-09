@@ -285,4 +285,14 @@ const quickStats = [
 /* Slide transition */
 .slide-enter-active, .slide-leave-active { transition:all 0.25s ease; }
 .slide-enter-from, .slide-leave-to { opacity:0; transform:translateY(-8px); }
+@media (max-width: 1024px) and (min-width: 769px) {
+  .ec-split { grid-template-columns: 1fr 1fr; gap: 14px; }
+}
+
+@media (max-width: 768px) {
+  .ec-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .ec-split  { grid-template-columns: 1fr; gap: 12px; }
+  .ec-overlay { padding: 12px; align-items: flex-end; }
+  .ec-modal  { max-width: 100%; border-radius: 22px 22px 0 0; }
+}
 </style>

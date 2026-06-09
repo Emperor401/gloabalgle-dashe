@@ -270,7 +270,6 @@ onMounted(async () => {
 
 <style scoped>
 .cc-page {
-  padding: 28px 32px;
   display: flex;
   flex-direction: column;
   gap: 22px;
@@ -364,7 +363,8 @@ onMounted(async () => {
 /* dropdown */
 .cc-drop {
   position: absolute; top: calc(100% + 8px); left: 0; min-width: 210px;
-  background: var(--bg-card); border: 1px solid var(--border-soft);
+  background: var(--modal-glass); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid var(--modal-border);
   border-radius: 14px; padding: 8px; z-index: 100;
   max-height: 240px; overflow-y: auto;
 }
@@ -432,4 +432,60 @@ onMounted(async () => {
 .cc-pair-flags { font-size: 1.05rem; margin-bottom: 6px; }
 .cc-pair-codes { font-size: 0.82rem; font-weight: 700; color: var(--t1); margin-bottom: 4px; }
 .cc-pair-rate  { font-size: 0.78rem; color: #22c55e; }
+
+/* ── Tablet ── */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .cc-pairs { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .cc-page { gap: 16px; }
+
+  /* header: single compact row — [icon] [title flex:1] [badge] */
+  .cc-header      { flex-wrap: nowrap; align-items: center; gap: 10px; }
+  .cc-header-icon { width: 40px; height: 40px; border-radius: 12px; flex-shrink: 0; }
+  .cc-header > div:not(.cc-header-icon) { flex: 1; min-width: 0; }
+  .cc-title       { font-size: 1.15rem; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .cc-sub         { display: none; }
+  .cc-status      { margin-left: 0; flex-shrink: 0; white-space: nowrap; font-size: 0.65rem; padding: 3px 9px; }
+
+  /* converter card */
+  .cc-card        { padding: 18px 16px; gap: 14px; }
+
+  /* input + selector stay side-by-side (stacking looks broken) */
+  .cc-input-row   { flex-direction: row; gap: 8px; align-items: stretch; }
+  .cc-input,
+  .cc-result-val  { flex: 1; min-width: 0; font-size: 1.05rem; padding: 12px; }
+  .cc-select-wrap { padding: 10px; gap: 5px; }
+  .cc-code        { min-width: unset; font-size: 0.82rem; }
+  .cc-flag        { font-size: 1rem; }
+
+  /* swap */
+  .cc-swap        { width: 36px; height: 36px; }
+
+  /* dropdowns: right-align to prevent screen-edge overflow */
+  .cc-drop        { left: auto; right: 0; min-width: 200px; }
+
+  /* quick amounts */
+  .cc-quick       { gap: 8px; }
+  .cc-quick-btn   { padding: 8px 12px; font-size: 0.8rem; }
+
+  /* popular pairs */
+  .cc-pairs       { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .cc-pair-card   { padding: 14px 12px; }
+}
+
+/* ── Small Mobile ── */
+@media (max-width: 480px) {
+  .cc-input, .cc-result-val { font-size: 0.95rem; padding: 11px 10px; }
+  .cc-select-wrap { padding: 9px 8px; gap: 4px; }
+  .cc-flag        { font-size: 0.9rem; }
+
+  /* quick amounts: even 3-column grid */
+  .cc-quick       { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .cc-quick-btn   { text-align: center; padding: 8px 6px; }
+
+  .cc-pairs       { gap: 6px; }
+}
 </style>

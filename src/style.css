@@ -16,6 +16,11 @@
   --glass-hover:  rgba(255, 255, 255, 0.065);
   --glass-filter: blur(20px) saturate(180%);
 
+  /* Modal glass — more opaque so modals are visible over dark overlays */
+  --modal-glass:  rgba(255, 255, 255, 0.085);
+  --modal-input:  rgba(255, 255, 255, 0.060);
+  --modal-border: rgba(255, 255, 255, 0.130);
+
   /* Borders */
   --border:      rgba(255, 255, 255, 0.082);
   --border-soft: rgba(255, 255, 255, 0.055);
@@ -79,6 +84,10 @@
   --glass-2:      rgba(255, 255, 255, 0.52);
   --glass-hover:  rgba(255, 255, 255, 0.88);
   --glass-filter: blur(20px) saturate(140%);
+
+  --modal-glass:  rgba(255, 255, 255, 0.88);
+  --modal-input:  rgba(255, 255, 255, 0.65);
+  --modal-border: rgba(0,   0,   0,   0.08);
 
   --border:      rgba(99, 102, 241, 0.15);
   --border-soft: rgba(0, 0, 0, 0.06);
