@@ -1,0 +1,231 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ══════════════════════════════════════════════
+   CSS DESIGN TOKENS  — Dark (Stakent-style) + Light
+   ══════════════════════════════════════════════ */
+
+:root {
+  /* Background — deep navy-black like Stakent */
+  --bg: #0c0d1f;
+
+  /* Glass surfaces */
+  --glass:        rgba(255, 255, 255, 0.042);
+  --glass-2:      rgba(255, 255, 255, 0.026);
+  --glass-hover:  rgba(255, 255, 255, 0.065);
+  --glass-filter: blur(20px) saturate(180%);
+
+  /* Borders */
+  --border:      rgba(255, 255, 255, 0.082);
+  --border-soft: rgba(255, 255, 255, 0.055);
+
+  /* Shadows */
+  --shadow:       none;
+  --shadow-hover: none;
+
+  /* Text */
+  --t1: rgba(255, 255, 255, 0.94);
+  --t2: rgba(255, 255, 255, 0.62);
+  --t3: rgba(255, 255, 255, 0.36);
+  --t4: rgba(255, 255, 255, 0.18);
+
+  /* Accent — Logo Green */
+  --accent:        #22c55e;
+  --accent-hover:  #4ade80;
+  --accent-deep:   #14532d;
+  --accent-dim:    rgba(34, 197, 94, 0.14);
+  --accent-border: rgba(34, 197, 94, 0.28);
+  --accent-glow:   rgba(34, 197, 94, 0);
+
+  /* Success — Bright Green */
+  --green:        #4ade80;
+  --green-dim:    rgba(74, 222, 128, 0.12);
+  --green-border: rgba(74, 222, 128, 0.25);
+  --green-glow:   rgba(74, 222, 128, 0);
+
+  /* Danger — Soft Red */
+  --red:        #f87171;
+  --red-dim:    rgba(248, 113, 113, 0.12);
+  --red-border: rgba(248, 113, 113, 0.25);
+  --red-glow:   rgba(248, 113, 113, 0);
+
+  /* Warning — Amber */
+  --yellow:        #fbbf24;
+  --yellow-dim:    rgba(251, 191, 36, 0.12);
+  --yellow-border: rgba(251, 191, 36, 0.25);
+
+  /* Purple — Light Violet */
+  --purple:        #c4b5fd;
+  --purple-deep:   #5b21b6;
+  --purple-dim:    rgba(196, 181, 253, 0.12);
+  --purple-border: rgba(196, 181, 253, 0.25);
+  --purple-glow:   rgba(196, 181, 253, 0);
+
+  /* Dropdown / Popover */
+  --dropdown-bg:     rgba(10, 11, 26, 0.88);
+  --dropdown-border: rgba(255, 255, 255, 0.1);
+  --dropdown-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+}
+
+/* ══════════════════════════════════════════════
+   LIGHT THEME
+   ══════════════════════════════════════════════ */
+
+[data-theme="light"] {
+  --bg: #eef0ff;
+
+  --glass:        rgba(255, 255, 255, 0.72);
+  --glass-2:      rgba(255, 255, 255, 0.52);
+  --glass-hover:  rgba(255, 255, 255, 0.88);
+  --glass-filter: blur(20px) saturate(140%);
+
+  --border:      rgba(99, 102, 241, 0.15);
+  --border-soft: rgba(0, 0, 0, 0.06);
+
+  --shadow:       none;
+  --shadow-hover: none;
+
+  --t1: rgba(12, 10, 30, 0.92);
+  --t2: rgba(12, 10, 30, 0.6);
+  --t3: rgba(12, 10, 30, 0.38);
+  --t4: rgba(12, 10, 30, 0.18);
+
+  --accent:        #16a34a;
+  --accent-hover:  #15803d;
+  --accent-deep:   #14532d;
+  --accent-dim:    rgba(22, 163, 74, 0.12);
+  --accent-border: rgba(22, 163, 74, 0.28);
+  --accent-glow:   rgba(22, 163, 74, 0);
+
+  --green:        #16a34a;
+  --green-dim:    rgba(22, 163, 74, 0.1);
+  --green-border: rgba(22, 163, 74, 0.22);
+  --green-glow:   rgba(22, 163, 74, 0);
+
+  --red:        #dc2626;
+  --red-dim:    rgba(220, 38, 38, 0.1);
+  --red-border: rgba(220, 38, 38, 0.22);
+  --red-glow:   rgba(220, 38, 38, 0);
+
+  --yellow:        #d97706;
+  --yellow-dim:    rgba(217, 119, 6, 0.1);
+  --yellow-border: rgba(217, 119, 6, 0.22);
+
+  --purple:        #7c3aed;
+  --purple-deep:   #4c1d95;
+  --purple-dim:    rgba(124, 58, 237, 0.1);
+  --purple-border: rgba(124, 58, 237, 0.22);
+  --purple-glow:   rgba(124, 58, 237, 0);
+
+  /* Dropdown / Popover */
+  --dropdown-bg:     rgba(255, 255, 255, 0.95);
+  --dropdown-border: rgba(0, 0, 0, 0.08);
+  --dropdown-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* ══════════════════════════════════════════════
+   GLOBAL BASE
+   ══════════════════════════════════════════════ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  min-height: 100vh;
+  background: var(--bg);
+  font-family: 'Satoshi', sans-serif;
+  color: var(--t1);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background 0.35s ease, color 0.35s ease;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-border); }
+
+/* ══════════════════════════════════════════════
+   GLOBAL MOBILE RESPONSIVE — 768px breakpoint
+   ══════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+
+  /* ── Dashboard — handled by scoped styles in DashboardView.vue ── */
+
+  /* ── Two-column body layouts ── */
+  .help-body                { grid-template-columns: 1fr !important; }
+  .help-cats                { grid-template-columns: repeat(3, 1fr) !important; }
+  .set-layout               { grid-template-columns: 1fr !important; }
+  .set-left                 { display: none !important; }
+  .set-tabs-mobile          { display: flex !important; }
+
+  /* ── Stats / card rows ── */
+  .w-stats                  { grid-template-columns: 1fr 1fr !important; }
+  .billing-plans            { grid-template-columns: 1fr !important; }
+  .billing-header           { flex-direction: column !important; align-items: flex-start !important; gap: 12px !important; }
+
+  /* ── Tools grid ── */
+  .tools-grid               { grid-template-columns: 1fr !important; }
+
+  /* ── Transactions / Customers table ── */
+  .txn-table-wrap, .cust-table-wrap { overflow-x: auto !important; }
+
+  /* ── Complaint page ── */
+  .cmp-header               { flex-direction: column !important; align-items: flex-start !important; gap: 10px !important; }
+  .cmp-cat-grid             { grid-template-columns: 1fr 1fr !important; }
+  .cmp-detail-grid          { grid-template-columns: 1fr 1fr !important; }
+  .cmp-modal                { border-radius: 16px !important; }
+
+  /* ── SMS Sender ── */
+  .sms-layout               { grid-template-columns: 1fr !important; }
+
+  /* ── Email Composer ── */
+  .composer-layout          { grid-template-columns: 1fr !important; }
+
+  /* ── Wallet ── */
+  .w-hdr                    { flex-direction: column !important; align-items: flex-start !important; gap: 12px !important; }
+
+  /* ── Analytics ── */
+  .analytics-grid           { grid-template-columns: 1fr !important; }
+  .analytics-stats          { grid-template-columns: 1fr 1fr !important; }
+
+  /* ── Help hero search ── */
+  .help-hero                { padding: 32px 16px !important; }
+  .help-hero-title          { font-size: 1.4rem !important; }
+
+  /* ── Spoof calling ── */
+  .sc-stats                 { grid-template-columns: 1fr 1fr !important; }
+  .sc-form-grid             { grid-template-columns: 1fr !important; }
+
+  /* ── Currency converter ── */
+  .cc-pair-row              { flex-direction: column !important; }
+  .cc-swap-btn              { align-self: center !important; transform: rotate(90deg) !important; }
+
+  /* ── Page headers ── */
+  .cmp-header,
+  .w-hdr,
+  .tut-header               { flex-wrap: wrap !important; }
+
+  /* ── Modal full screen on tiny screens ── */
+  .cmp-overlay              { padding: 12px !important; }
+  .cmp-cat-grid             { grid-template-columns: 1fr 1fr !important; }
+
+  /* ── Settings mobile tabs ── */
+  .set-tabs-mobile          { display: flex; overflow-x: auto; gap: 8px; padding-bottom: 4px; }
+  .set-tabs-mobile::-webkit-scrollbar { display: none; }
+}
+
+@media (max-width: 480px) {
+  .help-cats                { grid-template-columns: 1fr 1fr !important; }
+  .w-stats                  { grid-template-columns: 1fr !important; }
+  .analytics-stats          { grid-template-columns: 1fr !important; }
+  .sc-stats                 { grid-template-columns: 1fr !important; }
+  .cmp-pri-row              { flex-wrap: wrap !important; }
+  .help-contact-btns        { flex-direction: column !important; }
+  .billing-toggle           { flex-direction: column !important; align-items: flex-start !important; }
+}
