@@ -1015,4 +1015,18 @@ onBeforeUnmount(() => {
   .sc-tab        { padding: 8px 12px; gap: 5px; }
   .sc-tab svg    { display: none; }
 }
+
+/* ── Light mode surface fixes ── */
+[data-theme="light"] .sc-empty svg { stroke: var(--t4); }
+[data-theme="light"] .sc-upload-zone,
+[data-theme="light"] .sc-voice-row,
+[data-theme="light"] .sc-call-row:hover,
+[data-theme="light"] .sc-qp-btn { background: var(--glass-2); }
+[data-theme="light"] .sc-tab:hover,
+[data-theme="light"] .sc-input,
+[data-theme="light"] .sc-textarea,
+[data-theme="light"] .sc-live-input,
+[data-theme="light"] .sc-modal-close,
+[data-theme="light"] .sc-ctrl-btn { background: var(--glass); }
+[data-theme="light"] .sc-ctrl-btn:hover { background: var(--glass-hover); }
 </style>

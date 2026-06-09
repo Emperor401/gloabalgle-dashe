@@ -621,4 +621,8 @@ const navItems = [
   pointer-events: none;
   z-index: 0;
 }
+
+/* ── Light mode surface fixes ── */
+[data-theme="light"] .sidebar__close-btn { background: var(--glass); }
+[data-theme="light"] .sidebar__close-btn:hover { background: var(--glass-hover); }
 </style>

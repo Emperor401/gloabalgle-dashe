@@ -342,8 +342,8 @@ function exportCSV() {
 .kpi-card:hover { opacity:0.9; }
 .kpi-card__icon { width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
 .kpi-card__body { flex:1; display:flex; flex-direction:column; gap:2px; }
-.kpi-card__label { font-size:0.7rem; color:rgba(255,255,255,0.5); }
-.kpi-card__value { font-size:1.1rem; font-weight:800; color:#fff; letter-spacing:-0.02em; }
+.kpi-card__label { font-size:0.7rem; color:var(--t2); }
+.kpi-card__value { font-size:1.1rem; font-weight:800; color:var(--t1); letter-spacing:-0.02em; }
 .kpi-card__trend { font-size:0.7rem; font-weight:700; flex-shrink:0; }
 
 /* Panel */

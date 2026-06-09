@@ -241,7 +241,7 @@
       @click="closeSidebar"
     >
       <svg width="21" height="21" viewBox="0 0 24 24" fill="none"
-        :stroke="isActiveNav(item) ? '#d97706' : 'rgba(255,255,255,0.5)'"
+        stroke="currentColor"
         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
         v-html="item.icon" />
     </router-link>
@@ -531,7 +531,7 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   cursor: pointer; transition: background 0.15s; position: relative;
 }
 .notif-item:last-child  { border-bottom: none; }
-.notif-item:hover       { background: rgba(255,255,255,0.04); }
+.notif-item:hover       { background: var(--glass-2); }
 .notif-item--unread     { background: rgba(34,197,94,0.05); }
 .notif-item--unread:hover { background: rgba(34,197,94,0.08); }
 .notif-item--success { border-left: 2px solid #22c55e; }
@@ -594,14 +594,16 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   border-radius: 18px;
   display: flex; align-items: center; justify-content: center;
   text-decoration: none;
-  transition: background 0.22s ease, border-color 0.22s ease;
+  transition: background 0.22s ease, border-color 0.22s ease, color 0.22s ease;
   flex-shrink: 0;
   border: 1px solid transparent;
+  color: var(--t3);
 }
 
 .bn-item--active {
   background: var(--glass-hover);
   border-color: rgba(217, 119, 6, 0.3);
+  color: #d97706;
 }
 
 /* ══════════════════════════════

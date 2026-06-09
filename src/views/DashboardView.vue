@@ -1174,4 +1174,10 @@ function fmtAmount(amount, currency = 'NGN') {
   .ba-btn       { width: 40px; height: 40px; }
   .ba-btn--primary { width: 46px; height: 46px; }
 }
+
+/* ── Light mode surface fixes ── */
+[data-theme="light"] .pay-table tr:hover td,
+[data-theme="light"] .ref-stats,
+[data-theme="light"] .advert-metrics,
+[data-theme="light"] .advert-slot { background: var(--glass-2); }
 </style>

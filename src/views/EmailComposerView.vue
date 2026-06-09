@@ -295,4 +295,7 @@ const quickStats = [
   .ec-overlay { padding: 12px; align-items: flex-end; }
   .ec-modal  { max-width: 100%; border-radius: 22px 22px 0 0; }
 }
+
+/* ── Light mode surface fixes ── */
+[data-theme="light"] .email-preview { background: var(--glass); }
 </style>

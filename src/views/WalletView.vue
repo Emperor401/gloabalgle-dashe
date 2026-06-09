@@ -904,4 +904,16 @@ function showToast(type, msg) {
   .w-stats      { grid-template-columns: 1fr; }
   .w-plans-grid { grid-template-columns: 1fr; }
 }
+
+/* ── Light mode surface fixes ── */
+[data-theme="light"] .w-txn-row:hover,
+[data-theme="light"] .w-method,
+[data-theme="light"] .w-bank-details,
+[data-theme="light"] .w-plan-card,
+[data-theme="light"] .w-empty-icon { background: var(--glass-2); }
+[data-theme="light"] .w-modal-input,
+[data-theme="light"] .w-quick-btn,
+[data-theme="light"] .w-amount-input-wrap,
+[data-theme="light"] .w-modal-close { background: var(--glass); }
+[data-theme="light"] .w-toggle { background: var(--glass-hover); }
 </style>

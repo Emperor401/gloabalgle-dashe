@@ -109,7 +109,7 @@
         <div class="cmp-empty">
           <div class="cmp-empty-icon">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
-              stroke="rgba(255,255,255,.18)" stroke-width="1.5" stroke-linecap="round">
+              stroke="currentColor" stroke-width="1.5" stroke-linecap="round" class="cmp-empty-svg">
               <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/>
               <line x1="4" y1="22" x2="4" y2="15"/>
             </svg>
@@ -460,9 +460,7 @@ function closeTicket(id) {
 
 <style scoped>
 .cmp {
-  padding: 28px 32px;
   display: flex; flex-direction: column; gap: 20px;
-  min-height: 100vh;
 }
 
 /* ── Header ── */
@@ -500,7 +498,7 @@ function closeTicket(id) {
 }
 .cmp-tab--active { background: rgba(34,197,94,.12); color: #22c55e; }
 .cmp-tab-badge {
-  background: rgba(255,255,255,.06); border-radius: 999px;
+  background: var(--glass); border-radius: 999px;
   padding: 1px 8px; font-size: 0.68rem; font-weight: 700; color: var(--t3);
 }
 .cmp-tab-badge--active { background: rgba(34,197,94,.15); color: #22c55e; }
@@ -518,7 +516,7 @@ function closeTicket(id) {
   border: 1px solid var(--border-soft); border-radius: 16px;
   overflow: hidden; cursor: pointer; transition: border-color 0.2s;
 }
-.cmp-row:hover       { border-color: rgba(255,255,255,.18); }
+.cmp-row:hover       { border-color: var(--border); }
 .cmp-row--open       { border-color: rgba(34,197,94,.3); background: rgba(34,197,94,.04); }
 
 .cmp-row-main {
@@ -566,7 +564,7 @@ function closeTicket(id) {
 }
 .cmp-status-badge--open        { background: rgba(34,197,94,.1);   color: #22c55e;  border: 1px solid rgba(34,197,94,.2);   }
 .cmp-status-badge--in-progress { background: rgba(245,158,11,.1);  color: #f59e0b;  border: 1px solid rgba(245,158,11,.2);  }
-.cmp-status-badge--closed      { background: rgba(255,255,255,.06);color: var(--t3);border: 1px solid var(--border-soft); }
+.cmp-status-badge--closed      { background: var(--glass); color: var(--t3); border: 1px solid var(--border-soft); }
 
 .cmp-status-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
 .cmp-chevron { color: var(--t3); transition: transform 0.25s ease; flex-shrink: 0; }
@@ -592,7 +590,7 @@ function closeTicket(id) {
 .cmp-detail-msg { display: flex; flex-direction: column; gap: 6px; }
 .cmp-detail-body {
   font-size: 0.82rem; color: var(--t3); line-height: 1.7;
-  background: rgba(255,255,255,.03); border: 1px solid var(--border-soft);
+  background: var(--glass-2); border: 1px solid var(--border-soft);
   border-radius: 10px; padding: 12px 14px; margin: 0;
 }
 .cmp-detail-actions { display: flex; gap: 10px; }
@@ -619,15 +617,16 @@ function closeTicket(id) {
 .cmp-empty {
   background: var(--glass);
   backdrop-filter: var(--glass-filter); -webkit-backdrop-filter: var(--glass-filter);
-  border: 1px dashed rgba(255,255,255,.1); border-radius: 22px;
+  border: 1px dashed var(--border); border-radius: 22px;
   padding: 64px 80px; display: flex; flex-direction: column;
   align-items: center; gap: 14px; text-align: center;
 }
 .cmp-empty-icon {
   width: 72px; height: 72px; border-radius: 20px;
-  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
-  display: flex; align-items: center; justify-content: center;
+  background: var(--glass-2); border: 1px solid var(--border-soft);
+  display: flex; align-items: center; justify-content: center; color: var(--t4);
 }
+.cmp-empty-svg { color: var(--t4); }
 .cmp-empty-text { font-size: 0.88rem; color: var(--t3); margin: 0; }
 .cmp-first-btn {
   display: flex; align-items: center; gap: 8px;
@@ -666,11 +665,11 @@ function closeTicket(id) {
 .cmp-modal-sub   { font-size: 0.8rem; color: var(--t3); margin: 0; line-height: 1.5; }
 .cmp-modal-close {
   width: 30px; height: 30px; border-radius: 8px;
-  background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1);
+  background: var(--glass); border: 1px solid var(--border-soft);
   display: flex; align-items: center; justify-content: center;
   cursor: pointer; color: var(--t2); flex-shrink: 0; transition: background 0.2s;
 }
-.cmp-modal-close:hover { background: rgba(255,255,255,.14); color: var(--t1); }
+.cmp-modal-close:hover { background: var(--glass-hover); color: var(--t1); }
 
 /* Modal body */
 .cmp-modal-body { padding: 20px 24px; display: flex; flex-direction: column; gap: 18px; }
@@ -685,11 +684,11 @@ function closeTicket(id) {
 .cmp-cat-card {
   display: flex; flex-direction: column; align-items: flex-start; gap: 4px;
   padding: 12px 12px 10px; border-radius: 12px;
-  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.09);
+  background: var(--glass); border: 1px solid var(--border-soft);
   cursor: pointer; font-family: inherit; text-align: left;
   transition: all 0.18s;
 }
-.cmp-cat-card:hover { border-color: rgba(255,255,255,.18); background: rgba(255,255,255,.07); }
+.cmp-cat-card:hover { border-color: var(--border); background: var(--glass-hover); }
 .cmp-cat-card--active { border-color: #22c55e !important; background: rgba(34,197,94,.08) !important; }
 
 .cmp-cat-card-icon {
@@ -711,25 +710,25 @@ function closeTicket(id) {
 .cmp-pri-btn {
   display: flex; align-items: center; gap: 7px;
   padding: 7px 16px; border-radius: 10px;
-  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.09);
+  background: var(--glass); border: 1px solid var(--border-soft);
   font-size: 0.78rem; font-weight: 700; color: var(--t3);
   cursor: pointer; font-family: inherit; transition: all 0.18s;
 }
-.cmp-pri-btn:hover { border-color: rgba(255,255,255,.18); color: var(--t2); }
+.cmp-pri-btn:hover { border-color: var(--border); color: var(--t2); }
 .cmp-pri-dot { width: 7px; height: 7px; border-radius: 50%; }
-.cmp-pri-dot--low      { background: rgba(255,255,255,.2); }
+.cmp-pri-dot--low      { background: var(--t4); }
 .cmp-pri-dot--medium   { background: #60a5fa; }
 .cmp-pri-dot--high     { background: #f59e0b; }
 .cmp-pri-dot--critical { background: #f87171; }
 
-.cmp-pri-btn--active.cmp-pri-btn--low      { border-color: rgba(255,255,255,.25); color: var(--t1); background: rgba(255,255,255,.08); }
+.cmp-pri-btn--active.cmp-pri-btn--low      { border-color: var(--border); color: var(--t1); background: var(--glass-hover); }
 .cmp-pri-btn--active.cmp-pri-btn--medium   { border-color: rgba(96,165,250,.4);   color: #60a5fa;  background: rgba(96,165,250,.1);   }
 .cmp-pri-btn--active.cmp-pri-btn--high     { border-color: rgba(245,158,11,.4);   color: #f59e0b;  background: rgba(245,158,11,.1);   }
 .cmp-pri-btn--active.cmp-pri-btn--critical { border-color: rgba(248,113,113,.4);  color: #f87171;  background: rgba(248,113,113,.1);  }
 
 /* Input / Textarea */
 .cmp-input {
-  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
+  background: var(--modal-input); border: 1px solid var(--modal-border);
   border-radius: 11px; padding: 11px 14px;
   font-family: inherit; font-size: 0.84rem; color: var(--t1);
   outline: none; transition: border-color 0.2s;
@@ -740,7 +739,7 @@ function closeTicket(id) {
 .cmp-textarea-wrap { position: relative; }
 .cmp-textarea-wrap--error .cmp-textarea { border-color: rgba(248,113,113,.5); }
 .cmp-textarea {
-  width: 100%; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
+  width: 100%; background: var(--modal-input); border: 1px solid var(--modal-border);
   border-radius: 11px; padding: 11px 14px; resize: vertical;
   font-family: inherit; font-size: 0.84rem; color: var(--t1);
   outline: none; transition: border-color 0.2s; box-sizing: border-box;
@@ -757,7 +756,7 @@ function closeTicket(id) {
 
 /* Drop zone */
 .cmp-drop-zone {
-  background: rgba(255,255,255,.04); border: 1px dashed rgba(255,255,255,.12);
+  background: var(--glass); border: 1px dashed var(--border);
   border-radius: 12px; padding: 22px 16px;
   display: flex; flex-direction: column; align-items: center; gap: 6px;
   cursor: pointer; transition: all 0.2s; text-align: center;
@@ -778,7 +777,7 @@ function closeTicket(id) {
   cursor: pointer; line-height: 1; padding: 0; margin-left: 2px;
 }
 .cmp-add-more {
-  background: rgba(255,255,255,.06); border: 1px dashed rgba(255,255,255,.15);
+  background: var(--glass); border: 1px dashed var(--border);
   border-radius: 8px; padding: 5px 10px; font-size: 0.73rem; font-weight: 600;
   color: var(--t3); cursor: pointer; font-family: inherit; transition: all 0.2s;
 }
@@ -787,7 +786,7 @@ function closeTicket(id) {
 /* Modal footer */
 .cmp-modal-footer {
   display: flex; justify-content: space-between; align-items: center; gap: 12px;
-  padding: 16px 24px; border-top: 1px solid rgba(255,255,255,.08);
+  padding: 16px 24px; border-top: 1px solid var(--border-soft);
 }
 .cmp-view-link {
   font-size: 0.78rem; color: var(--t3); background: none; border: none;
@@ -798,11 +797,11 @@ function closeTicket(id) {
 
 .cmp-cancel-btn {
   padding: 9px 20px; border-radius: 11px;
-  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
+  background: var(--glass); border: 1px solid var(--border-soft);
   font-size: 0.82rem; font-weight: 700; color: var(--t2);
   cursor: pointer; font-family: inherit; transition: all 0.2s;
 }
-.cmp-cancel-btn:hover { background: rgba(255,255,255,.12); color: var(--t1); }
+.cmp-cancel-btn:hover { background: var(--glass-hover); color: var(--t1); }
 
 .cmp-submit-btn {
   padding: 9px 24px; border-radius: 11px; background: #22c55e; border: none;
@@ -836,7 +835,7 @@ function closeTicket(id) {
 
 .cmp-success-info {
   display: flex; flex-direction: column; gap: 8px; padding: 14px 16px;
-  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.09);
+  background: var(--glass); border: 1px solid var(--border-soft);
   border-radius: 12px; width: 100%; max-width: 340px;
 }
 .cmp-sinfo-row {
@@ -852,22 +851,84 @@ function closeTicket(id) {
 }
 .cmp-done-btn:hover { background: #16a34a; }
 
+/* ── Tablet ── */
 @media (max-width: 1024px) and (min-width: 769px) {
   .cmp-cat-grid    { grid-template-columns: repeat(3, 1fr); gap: 10px; }
-  .cmp-detail-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .cmp-detail-grid { grid-template-columns: repeat(3, auto); gap: 12px; }
 }
+
+/* ── Mobile ── */
 @media (max-width: 768px) {
-  .cmp-header      { flex-direction: column; align-items: flex-start; gap: 10px; }
-  .cmp-new-btn     { width: 100%; justify-content: center; }
-  .cmp-cat-grid    { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .cmp { gap: 16px; }
+
+  /* Header — stack button below title */
+  .cmp-header  { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .cmp-title   { font-size: 1.3rem; }
+  .cmp-new-btn { width: 100%; justify-content: center; }
+
+  /* Tab bar — scrollable if needed */
+  .cmp-tabs    { width: 100%; overflow-x: auto; scrollbar-width: none; }
+  .cmp-tabs::-webkit-scrollbar { display: none; }
+
+  /* Report rows — tighter */
+  .cmp-row-main    { padding: 12px 14px; gap: 10px; }
+  .cmp-row-subject { max-width: 100%; font-size: 0.82rem; }
+  .cmp-row-id      { display: none; }
+  .cmp-row-detail  { margin-left: 0; padding: 12px 14px; }
+
+  /* Detail grid */
   .cmp-detail-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-  .cmp-row-detail  { margin-left: 0; padding: 14px; }
-  .cmp-overlay     { padding: 12px; align-items: flex-end; }
+
+  /* Empty state — remove huge padding */
+  .cmp-empty       { padding: 40px 24px; }
+  .cmp-empty-icon  { width: 60px; height: 60px; border-radius: 16px; }
+  .cmp-first-btn   { width: 100%; justify-content: center; }
+
+  /* Modal — bottom sheet */
+  .cmp-overlay     { padding: 0; align-items: flex-end; }
   .cmp-modal       { max-width: 100%; border-radius: 22px 22px 0 0; max-height: 92vh; }
+  .cmp-modal-hdr   { padding: 20px 18px 0; }
+  .cmp-modal-body  { padding: 16px 18px; gap: 14px; }
+
+  /* Category cards — 2 cols */
+  .cmp-cat-grid    { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .cmp-cat-card    { padding: 10px 10px 8px; }
+  .cmp-cat-card-desc { display: none; }
+
+  /* Modal footer — stack on mobile */
+  .cmp-modal-footer { flex-direction: column; align-items: stretch; gap: 10px; padding: 14px 18px; }
+  .cmp-footer-btns  { flex-direction: row; gap: 8px; }
+  .cmp-submit-btn   { flex: 1; justify-content: center; }
+  .cmp-cancel-btn   { flex: 1; }
+  .cmp-view-link    { text-align: center; }
+
+  /* Success state */
+  .cmp-success      { padding: 30px 20px; }
+  .cmp-done-btn     { width: 100%; }
 }
+
+/* ── Small Mobile ── */
 @media (max-width: 480px) {
-  .cmp-cat-grid    { grid-template-columns: 1fr; }
-  .cmp-detail-grid { grid-template-columns: 1fr; }
-  .cmp-pri-row     { flex-direction: column; }
+  .cmp-title       { font-size: 1.2rem; }
+
+  /* Row meta — hide date too, keep only category pill */
+  .cmp-row-meta    { gap: 6px; }
+  .cmp-row-date    { display: none; }
+
+  /* Category cards — single column */
+  .cmp-cat-grid    { grid-template-columns: 1fr; gap: 6px; }
+  .cmp-cat-card    { flex-direction: row; align-items: center; padding: 10px 12px; gap: 10px; }
+  .cmp-cat-card-icon { flex-shrink: 0; margin-bottom: 0; }
+  .cmp-cat-card-name { font-size: 0.8rem; }
+
+  /* Detail grid — single column */
+  .cmp-detail-grid { grid-template-columns: 1fr 1fr; }
+
+  /* Priority — wrap naturally, no force-column */
+  .cmp-pri-row     { gap: 6px; }
+  .cmp-pri-btn     { padding: 6px 12px; font-size: 0.74rem; }
+
+  /* Empty state */
+  .cmp-empty       { padding: 32px 18px; border-radius: 18px; }
 }
 </style>

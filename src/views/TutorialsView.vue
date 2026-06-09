@@ -252,9 +252,7 @@ function showToast(type, msg) {
 
 <style scoped>
 .tut-page {
-  padding: 28px 32px;
   display: flex; flex-direction: column; gap: 22px;
-  min-height: 100vh;
 }
 
 /* ── Header ── */
@@ -499,17 +497,68 @@ function showToast(type, msg) {
 .tut-toast--info    { background: rgba(96,165,250,.18);  border: 1px solid rgba(96,165,250,.3);  color: #60a5fa;  }
 
 @media (max-width: 1024px) and (min-width: 769px) {
-  .tut-grid        { grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .tut-grid        { grid-template-columns: repeat(2, 1fr); gap: 14px; }
 }
+
 @media (max-width: 768px) {
-  .tut-header      { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .tut-page        { gap: 16px; }
+
+  /* Header */
+  .tut-title       { font-size: 1.35rem; }
+
+  /* Filter bar — pills scroll horizontally, search below */
+  .tut-filterbar   { flex-direction: column; align-items: stretch; gap: 10px; }
+  .tut-pills       { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; gap: 6px; padding-bottom: 2px; }
+  .tut-pills::-webkit-scrollbar { display: none; }
+  .tut-pill        { flex-shrink: 0; }
   .tut-search      { width: 100%; min-width: unset; }
+
+  /* Grid — 2 cols on tablet/mobile */
   .tut-grid        { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .tut-thumb       { height: 110px; }
+
+  /* Empty state */
+  .tut-empty-container { padding: 36px 20px; gap: 8px; }
+  .tut-notify-btn  { width: 100%; justify-content: center; }
+
+  /* Modal — bottom sheet */
   .tut-modal-overlay { padding: 0; align-items: flex-end; }
   .tut-modal       { max-width: 100%; border-radius: 24px 24px 0 0; max-height: 92vh; }
-  .tut-toast       { bottom: 90px; max-width: calc(100vw - 32px); white-space: normal; }
+  .tut-modal-video { height: 200px; }
+  .tut-modal-body  { padding: 18px 20px 24px; }
+
+  /* Toast above bottom nav */
+  .tut-toast       { bottom: 90px; max-width: calc(100vw - 32px); white-space: normal; text-align: center; }
 }
+
 @media (max-width: 480px) {
-  .tut-grid { grid-template-columns: 1fr; }
+  .tut-page        { gap: 14px; }
+  .tut-title       { font-size: 1.2rem; }
+
+  /* Single column on small phones */
+  .tut-grid        { grid-template-columns: 1fr; gap: 10px; }
+  .tut-thumb       { height: 130px; }
+
+  /* Empty state tighter */
+  .tut-empty-container { padding: 30px 16px; }
+  .tut-empty-icon  { width: 48px; height: 48px; border-radius: 13px; }
+  .tut-empty-title { font-size: 0.95rem; }
+  .tut-empty-sub   { font-size: 0.78rem; }
+
+  /* Modal video shorter on small phones */
+  .tut-modal-video { height: 170px; }
+  .tut-modal-title { font-size: 0.97rem; }
+}
+
+/* ── Light mode surface fixes ── */
+[data-theme="light"] .tut-pill,
+[data-theme="light"] .tut-search,
+[data-theme="light"] .tut-empty-icon,
+[data-theme="light"] .tut-card-footer,
+[data-theme="light"] .tut-meta-chip,
+[data-theme="light"] .tut-empty-hint code { background: var(--glass); }
+[data-theme="light"] .tut-modal-play-btn {
+  background: var(--glass-hover);
+  border-color: var(--border);
 }
 </style>

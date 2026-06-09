@@ -566,4 +566,10 @@ function selectCoin(coin) {
   .modal-coin-row { padding: 12px; gap: 10px; }
   .modal-fund-btn { padding: 7px 10px; font-size: 0.7rem; }
 }
+
+/* ── Light mode surface fixes ── */
+[data-theme="light"] .modal-coin-row { background: var(--glass-2); }
+[data-theme="light"] .wf-coin-tag,
+[data-theme="light"] .modal-close,
+[data-theme="light"] .modal-coin-icon { background: var(--glass); }
 </style>

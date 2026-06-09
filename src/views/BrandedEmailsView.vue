@@ -229,4 +229,8 @@ const recentSends = [
   .template-grid { grid-template-columns: 1fr; gap: 10px; }
   .be-title      { font-size: 1.2rem; }
 }
+
+/* ── Light mode surface fixes ── */
+[data-theme="light"] .t-preview__bar,
+[data-theme="light"] .t-preview__line { background: var(--border-soft); }
 </style>

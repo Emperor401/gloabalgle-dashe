@@ -618,8 +618,7 @@ function copyText(text) {
 
 <style scoped>
 .set-page {
-  padding: 28px 32px;
-  min-height: 100vh;
+  padding: 0;
 }
 
 /* ── Layout ── */
@@ -996,26 +995,94 @@ function copyText(text) {
 }
 
 @media (max-width: 1024px) and (min-width: 769px) {
-  .set-layout      { grid-template-columns: 220px 1fr !important; }
-  .set-ref-stats   { grid-template-columns: 1fr 1fr !important; }
+  .set-layout      { grid-template-columns: 200px 1fr; }
+  .set-ref-stats   { grid-template-columns: 1fr 1fr; }
 }
+
 @media (max-width: 768px) {
-  .set-page        { padding: 16px !important; }
-  .set-layout      { grid-template-columns: 1fr !important; }
-  .set-left        { display: none !important; }
-  .set-mobile-tabs { display: flex !important; }
-  .set-ref-stats   { grid-template-columns: 1fr 1fr !important; }
-  .set-smtp-row    { flex-direction: column !important; }
-  .set-login-head  { display: none !important; }
+  .set-layout      { grid-template-columns: 1fr; }
+  .set-left        { display: none; }
+  .set-mobile-tabs { display: flex; }
+
+  /* ID card */
+  .set-id-card     { padding: 16px 18px; gap: 14px; }
+  .set-avatar      { width: 52px; height: 52px; font-size: 1rem; }
+  .set-id-name     { font-size: 0.95rem; }
+
+  /* Field rows */
+  .set-field-row   { padding: 12px 14px; gap: 10px; }
+  .set-field-icon  { width: 28px; height: 28px; border-radius: 7px; }
+  .set-action-btn  { padding: 5px 10px; font-size: 0.7rem; }
+  .set-locked-tag  { padding: 4px 8px; font-size: 0.64rem; }
+
+  /* Cards */
+  .set-card        { padding: 18px; gap: 12px; }
+
+  /* Danger zone — stack on mobile */
+  .set-danger-item { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .set-danger-btn  { width: 100%; text-align: center; justify-content: center; display: flex; }
+
+  /* Ref stats */
+  .set-ref-stats   { grid-template-columns: 1fr 1fr; }
+
+  /* SMTP */
+  .set-smtp-row    { flex-direction: column; }
+  .set-smtp-btns   { flex-direction: column; }
+  .set-smtp-btns .set-primary-btn { flex: unset; }
+
+  /* Login history — card layout instead of table */
+  .set-login-head  { display: none; }
   .set-login-row   {
-    grid-template-columns: 1fr 1fr !important;
-    grid-template-rows: auto auto !important;
-    gap: 6px 12px !important;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    gap: 4px 10px;
+    padding: 12px 0;
   }
-  .set-login-row > :nth-child(4) { display: none; }
+  .set-login-date   { grid-column: 1; grid-row: 1; font-size: 0.72rem; }
+  .set-login-device { grid-column: 1; grid-row: 2; font-size: 0.77rem; }
+  .set-login-loc    { display: none; }
+  .set-login-ip     { display: none; }
+  .set-status-tag   { grid-column: 2; grid-row: 1 / 3; align-self: center; }
 }
+
 @media (max-width: 480px) {
-  .set-ref-stats   { grid-template-columns: 1fr !important; }
-  .set-login-row   { grid-template-columns: 1fr !important; }
+  .set-mobile-tabs  { gap: 5px; }
+  .set-mobile-tab   { padding: 7px 11px; font-size: 0.74rem; }
+  .set-mobile-tab svg { display: none; }
+
+  .set-id-card      { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .set-id-avatar-wrap { align-self: center; }
+
+  .set-field-row    { padding: 11px 12px; gap: 8px; }
+  .set-field-icon   { display: none; }
+  .set-field-val    { font-size: 0.82rem; }
+
+  .set-ref-stats    { grid-template-columns: 1fr; }
+  .set-ref-stat     { padding: 14px; }
+  .set-ref-val      { font-size: 1.1rem; }
+
+  .set-ref-row      { flex-direction: column; align-items: stretch; gap: 8px; }
+  .set-copy-btn     { width: 100%; justify-content: center; }
+
+  .set-card         { padding: 16px; }
+  .set-primary-btn  { width: 100%; }
 }
+
+/* ── Light mode surface fixes ── */
+[data-theme="light"] .set-empty-state svg { stroke: var(--t4); }
+[data-theme="light"] .set-nav-item:hover,
+[data-theme="light"] .set-locked-tag,
+[data-theme="light"] .set-danger-item,
+[data-theme="light"] .set-ref-row { background: var(--glass-2); }
+[data-theme="light"] .set-nav-icon,
+[data-theme="light"] .set-field-icon,
+[data-theme="light"] .set-btn-cancel,
+[data-theme="light"] .set-action-btn,
+[data-theme="light"] .set-input,
+[data-theme="light"] .set-id-role,
+[data-theme="light"] .set-inline-input,
+[data-theme="light"] .set-ghost-btn { background: var(--glass); }
+[data-theme="light"] .set-pw-bar,
+[data-theme="light"] .set-toggle { background: var(--glass-hover); }
 </style>

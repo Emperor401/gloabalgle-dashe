@@ -862,4 +862,15 @@ function showToast(type, msg) {
   .bill-stats      { grid-template-columns: 1fr; }
   .bill-plans-grid { grid-template-columns: 1fr; }
 }
+
+/* ── Light mode surface fixes ── */
+[data-theme="light"] .bill-empty svg { stroke: var(--t4); }
+[data-theme="light"] .bill-plan-limits,
+[data-theme="light"] .bill-note-item:hover { background: var(--glass-2); }
+[data-theme="light"] .bill-redeem-input,
+[data-theme="light"] .bill-modal-close,
+[data-theme="light"] .bill-confirm-cancel,
+[data-theme="light"] .bill-plan-btn--select { background: var(--glass); }
+[data-theme="light"] .bill-toggle,
+[data-theme="light"] .bill-confirm-cancel:hover { background: var(--glass-hover); }
 </style>

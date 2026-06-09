@@ -929,4 +929,16 @@ function sendBulkSMS() {
 @media (max-width: 480px) {
   .sms-stats { grid-template-columns: 1fr; }
 }
+
+/* ── Light mode surface fixes ── */
+[data-theme="light"] .sms-empty svg { stroke: var(--t4); }
+[data-theme="light"] .sms-cost-row,
+[data-theme="light"] .sms-history-row:hover,
+[data-theme="light"] .sms-phone-frame { background: var(--glass-2); }
+[data-theme="light"] .sms-tab:hover,
+[data-theme="light"] .sms-input,
+[data-theme="light"] .sms-textarea,
+[data-theme="light"] .sms-country-wrap,
+[data-theme="light"] .sms-drop-search { background: var(--glass); }
+[data-theme="light"] .sms-toggle { background: var(--glass-hover); }
 </style>

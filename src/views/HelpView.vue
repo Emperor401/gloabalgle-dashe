@@ -265,9 +265,7 @@ function showToast(type, msg) {
 
 <style scoped>
 .help {
-  padding: 28px 32px;
   display: flex; flex-direction: column; gap: 18px;
-  min-height: 100vh;
 }
 
 /* ── Hero ── */
@@ -557,15 +555,83 @@ function showToast(type, msg) {
 }
 .help-toast--success { background: rgba(34,197,94,.18);  border: 1px solid rgba(34,197,94,.3);  color: #22c55e; }
 .help-toast--info    { background: rgba(96,165,250,.18); border: 1px solid rgba(96,165,250,.3); color: #60a5fa; }
+/* ── Tablet ── */
 @media (max-width: 1024px) and (min-width: 769px) {
-  .help-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
-  .help-faq-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .help-cats { grid-template-columns: repeat(5, 1fr); gap: 8px; }
+  .help-cat  { padding: 14px 10px; }
+  .help-cat-icon { width: 38px; height: 38px; }
+  .help-body { grid-template-columns: 1fr 260px; }
 }
 
+/* ── Mobile ── */
 @media (max-width: 768px) {
-  .help-header { flex-direction: column; align-items: flex-start; gap: 10px; }
-  .help-grid     { grid-template-columns: 1fr; gap: 12px; }
-  .help-faq-grid { grid-template-columns: 1fr; gap: 10px; }
-  .help-search   { width: 100%; }
+  .help { gap: 14px; }
+
+  /* Hero */
+  .help-hero         { padding: 32px 20px; }
+  .help-hero-title   { font-size: 1.5rem; }
+  .help-hero-sub     { font-size: 0.8rem; }
+  .help-hero-search  { max-width: 100%; }
+
+  /* Category cards — 3 cols */
+  .help-cats   { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .help-cat    { padding: 14px 10px; gap: 6px; }
+  .help-cat-icon    { width: 38px; height: 38px; border-radius: 10px; }
+  .help-cat-label   { font-size: 0.75rem; }
+  .help-cat-count   { font-size: 0.62rem; }
+
+  /* Body — stack to single column */
+  .help-body   { grid-template-columns: 1fr; gap: 14px; }
+
+  /* FAQ header — wrap on narrow */
+  .help-faq-hdr { flex-wrap: wrap; gap: 8px; }
+  .help-faq-trigger { padding: 13px 15px; }
+  .help-faq-q   { font-size: 0.83rem; }
+  .help-faq-answer  { padding: 0 15px 14px; font-size: 0.79rem; }
+
+  /* Right column becomes a normal stacked section */
+  .help-right  { gap: 12px; }
+  .help-status-hdr  { flex-wrap: wrap; gap: 6px; }
+  .help-status-ok-badge { font-size: 0.58rem; }
+
+  /* Toast above bottom nav */
+  .help-toast  { bottom: 90px; max-width: calc(100vw - 32px); white-space: normal; text-align: center; }
 }
+
+/* ── Small Mobile ── */
+@media (max-width: 480px) {
+  .help { gap: 12px; }
+
+  /* Hero tighter */
+  .help-hero         { padding: 26px 16px; border-radius: 18px; }
+  .help-hero-title   { font-size: 1.25rem; }
+  .help-hero-sub     { font-size: 0.75rem; }
+  .help-hero-search  { padding: 8px 8px 8px 12px; gap: 8px; }
+  .help-search-btn   { padding: 7px 14px; font-size: 0.78rem; }
+
+  /* Category cards — 2 cols */
+  .help-cats   { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .help-cat    { padding: 12px 8px; border-radius: 14px; }
+  .help-cat-icon    { width: 34px; height: 34px; border-radius: 9px; }
+  .help-cat-label   { font-size: 0.72rem; }
+
+  /* FAQ */
+  .help-faq    { padding: 16px; gap: 12px; }
+  .help-faq-trigger { padding: 11px 12px; gap: 10px; }
+  .help-faq-answer  { padding: 0 12px 12px; }
+
+  /* Cards */
+  .help-card   { padding: 16px; }
+  .help-contact-btns { flex-direction: column; }
+  .help-primary-btn, .help-ghost-btn { flex: unset; width: 100%; }
+  .help-status-name  { font-size: 0.7rem; }
+}
+
+/* ── Light mode surface fixes ── */
+[data-theme="light"] .help-faq-trigger:hover,
+[data-theme="light"] .help-link:hover,
+[data-theme="light"] .help-status-row { background: var(--glass-2); }
+[data-theme="light"] .help-faq-toggle,
+[data-theme="light"] .help-ghost-btn { background: var(--glass); }
+[data-theme="light"] .help-ghost-btn:hover { background: var(--glass-hover); }
 </style>
