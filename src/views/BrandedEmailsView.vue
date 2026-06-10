@@ -54,8 +54,8 @@
           <h3 class="t-name">{{ t.name }}</h3>
           <p class="t-desc">{{ t.desc }}</p>
           <div class="t-actions">
-            <button class="btn-preview">Preview</button>
-            <button class="btn-send">
+            <button class="btn-preview" @click="previewTemplate(t)">Preview</button>
+            <button class="btn-send" @click="sendTemplate(t)">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
               Send
             </button>
@@ -63,6 +63,43 @@
         </div>
       </div>
     </div>
+
+    <!-- Preview Modal -->
+    <Teleport to="body">
+      <Transition name="modal">
+        <div v-if="previewOpen" class="modal-overlay" @click.self="previewOpen = false">
+          <div class="modal-box">
+            <div class="modal-top">
+              <h3 class="modal-title">{{ previewItem?.name }}</h3>
+              <button class="modal-close" @click="previewOpen = false">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </button>
+            </div>
+            <div class="modal-email" :style="{ borderTopColor: previewItem?.color }">
+              <div class="me-header">
+                <div class="me-logo" :style="{ background: previewItem?.color }">G</div>
+                <div>
+                  <p class="me-brand">Globalgle Bank</p>
+                  <p class="me-from">noreply@globalgle.com</p>
+                </div>
+              </div>
+              <div class="me-badge" :style="{ background: previewItem?.dimColor, color: previewItem?.color, borderColor: previewItem?.color + '44' }">{{ previewItem?.tag }}</div>
+              <p class="me-subject">{{ previewItem?.name }}</p>
+              <p class="me-body">{{ previewItem?.desc }} This is a sample preview of the branded email that will be delivered to your customers with your company's branding and identity.</p>
+              <div class="me-cta" :style="{ background: previewItem?.color }">View Details →</div>
+              <p class="me-footer">© 2026 Globalgle Bank · Unsubscribe · Privacy Policy</p>
+            </div>
+            <div class="modal-actions">
+              <button class="modal-btn-cancel" @click="previewOpen = false">Close</button>
+              <button class="modal-btn-send" :style="{ background: previewItem?.color }" @click="sendTemplate(previewItem); previewOpen = false">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                Send to Customers
+              </button>
+            </div>
+          </div>
+        </div>
+      </Transition>
+    </Teleport>
 
     <!-- Recent Sends -->
     <div class="glass-panel">
@@ -102,8 +139,23 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { useToast } from '../composables/useToast.js'
+const { success: toastSuccess } = useToast()
 
-const activeTab = ref('All')
+const activeTab   = ref('All')
+const previewOpen = ref(false)
+const previewItem = ref(null)
+
+function previewTemplate(t) {
+  previewItem.value = t
+  previewOpen.value = true
+}
+
+function sendTemplate(t) {
+  toastSuccess(`${t.name} Sent`, `Your branded email was dispatched to all eligible customers successfully.`)
+}
+
+
 const tabs = ['All', 'Transactional', 'Marketing', 'Alerts']
 
 const templates = [
@@ -233,4 +285,37 @@ const recentSends = [
 /* ── Light mode surface fixes ── */
 [data-theme="light"] .t-preview__bar,
 [data-theme="light"] .t-preview__line { background: var(--border-soft); }
+
+/* ── Preview Modal ── */
+.modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.55); backdrop-filter:blur(6px); display:flex; align-items:center; justify-content:center; z-index:9999; padding:20px; }
+.modal-box { background:var(--glass); border:1px solid var(--border-soft); border-radius:20px; width:100%; max-width:440px; overflow:hidden; box-shadow:0 24px 60px rgba(0,0,0,0.4); }
+.modal-top { display:flex; align-items:center; justify-content:space-between; padding:18px 20px 14px; border-bottom:1px solid var(--border-soft); }
+.modal-title { font-size:0.95rem; font-weight:700; color:var(--t1); margin:0; }
+.modal-close { background:none; border:none; cursor:pointer; color:var(--t3); display:flex; padding:4px; border-radius:6px; transition:color 0.2s; }
+.modal-close:hover { color:var(--t1); }
+.modal-email { margin:20px; border-radius:12px; border:1px solid var(--border-soft); border-top-width:3px; overflow:hidden; background:rgba(255,255,255,0.03); }
+.me-header { display:flex; align-items:center; gap:10px; padding:14px 16px 10px; }
+.me-logo { width:30px; height:30px; border-radius:8px; color:#fff; font-size:0.8rem; font-weight:900; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.me-brand { font-size:0.82rem; font-weight:700; color:var(--t1); margin:0 0 1px; }
+.me-from { font-size:0.65rem; color:var(--t4); margin:0; }
+.me-badge { display:inline-block; font-size:0.6rem; font-weight:800; padding:3px 9px; border-radius:999px; border:1px solid; margin:0 16px 10px; letter-spacing:0.06em; }
+.me-subject { font-size:0.88rem; font-weight:700; color:var(--t1); margin:0 16px 8px; }
+.me-body { font-size:0.75rem; color:var(--t3); line-height:1.6; margin:0 16px 16px; }
+.me-cta { margin:0 16px 16px; padding:10px 16px; border-radius:8px; color:#fff; font-size:0.8rem; font-weight:700; text-align:center; cursor:pointer; }
+.me-footer { font-size:0.62rem; color:var(--t4); text-align:center; padding:10px 16px 14px; border-top:1px solid var(--border-soft); }
+.modal-actions { display:flex; gap:10px; padding:0 20px 20px; }
+.modal-btn-cancel { flex:1; padding:10px; background:var(--glass-2); border:1px solid var(--border-soft); border-radius:10px; color:var(--t3); font-family:'Satoshi',sans-serif; font-size:0.82rem; font-weight:600; cursor:pointer; transition:all 0.2s; }
+.modal-btn-cancel:hover { color:var(--t1); }
+.modal-btn-send { flex:2; display:flex; align-items:center; justify-content:center; gap:7px; padding:10px; border:none; border-radius:10px; color:#fff; font-family:'Satoshi',sans-serif; font-size:0.82rem; font-weight:700; cursor:pointer; opacity:0.92; transition:opacity 0.2s; }
+.modal-btn-send:hover { opacity:1; }
+
+.modal-enter-active, .modal-leave-active { transition:all 0.25s ease; }
+.modal-enter-from, .modal-leave-to { opacity:0; transform:scale(0.96); }
+
+@media (max-width: 480px) {
+  .modal-box { max-width:100%; border-radius:22px 22px 0 0; }
+  .modal-overlay { align-items:flex-end; padding:0; }
+}
+
+[data-theme="light"] .modal-email { background: rgba(255,255,255,0.7); }
 </style>

@@ -55,15 +55,15 @@
         <div class="field-group body-group">
           <label class="field-label">Message</label>
           <div class="toolbar">
-            <button v-for="t in toolbar" :key="t.label" class="tool-btn" :title="t.label">
+            <button v-for="t in toolbar" :key="t.label" class="tool-btn" :title="t.label" @click="applyFormat(t.label)">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" v-html="t.icon" />
             </button>
             <div class="toolbar-div" />
-            <button class="tool-btn" title="Insert variable">
+            <button class="tool-btn" title="Insert variable" @click="insertVariable">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
             </button>
           </div>
-          <textarea v-model="body" class="body-input" rows="9" placeholder="Write your email content here…" />
+          <textarea ref="bodyRef" v-model="body" class="body-input" rows="9" placeholder="Write your email content here…" />
         </div>
 
         <!-- Attachment row -->
@@ -77,7 +77,7 @@
 
         <!-- Actions -->
         <div class="compose-actions">
-          <button class="btn-save-draft">Save as Draft</button>
+          <button class="btn-save-draft" @click="saveDraft">Save as Draft</button>
           <div class="right-actions">
             <button class="btn-preview-email" @click="showPreview = !showPreview">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
@@ -148,7 +148,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useToast } from '../composables/useToast.js'
-const { success: toastSuccess, error: toastError } = useToast()
+const { success: toastSuccess, error: toastError, info: toastInfo } = useToast()
 
 const mode        = ref('single')
 const toInput     = ref('')
@@ -157,10 +157,50 @@ const subject     = ref('')
 const body        = ref('')
 const showPreview = ref(false)
 const bulkCount   = 94210
+const bodyRef     = ref(null)
 
 function addChip() {
   const v = toInput.value.trim().replace(/,$/, '')
   if (v) { toChips.value.push(v); toInput.value = '' }
+}
+
+function applyFormat(type) {
+  const el = bodyRef.value
+  if (!el) return
+  const start = el.selectionStart
+  const end   = el.selectionEnd
+  const sel   = body.value.slice(start, end) || 'text'
+  const wrapMap = { Bold: `**${sel}**`, Italic: `*${sel}*`, Underline: `__${sel}__`, Link: `[${sel}](https://)`, List: `\n• ${sel}`, Image: null }
+  if (type === 'Image') { toastInfo('Image Upload', 'Image attachment is coming soon. Use Attach File for now.'); return }
+  const wrapped = wrapMap[type]
+  if (!wrapped) return
+  body.value = body.value.slice(0, start) + wrapped + body.value.slice(end)
+  toastSuccess(`${type} applied`, '')
+}
+
+function insertVariable() {
+  const vars = ['{{customer_name}}', '{{account_number}}', '{{balance}}', '{{transaction_id}}']
+  const el = bodyRef.value
+  if (!el) return
+  const pos = el.selectionStart
+  body.value = body.value.slice(0, pos) + vars[0] + body.value.slice(pos)
+  toastInfo('Variable inserted', `Use ${vars.join(', ')} to personalise your email.`)
+}
+
+function saveDraft() {
+  if (!subject.value.trim() && !body.value.trim()) {
+    toastError('Nothing to save', 'Write a subject or message before saving as draft.')
+    return
+  }
+  const now = new Date()
+  const time = now.getHours() + ':' + String(now.getMinutes()).padStart(2, '0')
+  drafts.value.unshift({
+    id: Date.now(),
+    subject: subject.value.trim() || '(No subject)',
+    time: `Today, ${time}`,
+    recipients: mode.value === 'bulk' ? `Bulk · ${(bulkCount / 1000).toFixed(0)}K` : toChips.value.length ? `${toChips.value.length} recipient${toChips.value.length > 1 ? 's' : ''}` : 'Single'
+  })
+  toastSuccess('Draft saved', 'Your email has been saved to drafts.')
 }
 
 const toolbar = [
@@ -172,11 +212,11 @@ const toolbar = [
   { label:'Image',       icon:'<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>' },
 ]
 
-const drafts = [
+const drafts = ref([
   { id:1, subject:'June Savings Offer — Earn More',    time:'2h ago',    recipients:'Bulk · 94K' },
   { id:2, subject:'Your April Statement is Ready',     time:'Yesterday', recipients:'Bulk · 48K' },
   { id:3, subject:'Upgrade Your Plan Today',           time:'Jun 3',     recipients:'Single'     },
-]
+])
 
 function loadDraft(d) { subject.value = d.subject }
 
