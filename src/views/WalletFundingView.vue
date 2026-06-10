@@ -209,6 +209,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useToast } from '../composables/useToast.js'
 
 const router = useRouter()
 
@@ -264,9 +265,14 @@ const coinEmoji = (c) =>
 const coinNetwork = (c) =>
   ({ BTC: 'Bitcoin Network', ETH: 'Ethereum (ERC-20)', BNB: 'BNB Smart Chain', USDT: 'Tether (TRC-20)' }[c] ?? c)
 
+const { info } = useToast()
+
 function openProvider(p) { activeProvider.value = p }
 function selectCoin(coin) {
-  alert(`Funding via ${coin} from ${activeProvider.value.name} coming soon.`)
+  info(
+    `${coin} Funding Coming Soon`,
+    `Funding via ${coin} from ${activeProvider.value.name} will be available shortly. Stay tuned!`
+  )
   activeProvider.value = null
 }
 </script>
