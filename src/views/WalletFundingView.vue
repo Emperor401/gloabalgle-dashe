@@ -361,12 +361,12 @@ function selectCoin(coin) {
 .wf-balance-val   { font-size: 1.5rem; font-weight: 800; color: var(--t1); }
 .wf-fund-btn {
   display: flex; align-items: center; gap: 6px;
-  background: rgba(34,197,94,.12); border: 1px solid rgba(34,197,94,.25);
+  background: #22c55e; border: 1px solid #22c55e;
   border-radius: 10px; padding: 9px 18px; font-size: 0.82rem;
-  font-weight: 700; color: #22c55e; cursor: pointer;
-  font-family: inherit; transition: background 0.2s, border-color 0.2s;
+  font-weight: 700; color: #fff; cursor: pointer;
+  font-family: inherit; transition: background 0.2s, border-color 0.2s, transform 0.15s;
 }
-.wf-fund-btn:hover { background: rgba(34,197,94,.2); border-color: rgba(34,197,94,.4); }
+.wf-fund-btn:hover { background: #16a34a; border-color: #16a34a; transform: translateY(-1px); }
 
 /* section label */
 .wf-section-label {
