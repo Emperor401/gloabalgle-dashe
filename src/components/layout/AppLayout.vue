@@ -4,14 +4,6 @@
 
     <PageLoader />
 
-    <!-- Background Orbs -->
-    <div class="bg-orbs">
-      <div class="orb orb--violet" />
-      <div class="orb orb--emerald" />
-      <div class="orb orb--rose" />
-      <div class="orb orb--indigo" />
-    </div>
-
     <AppSidebar />
 
     <div class="app-layout__main">
@@ -42,65 +34,6 @@ import PageLoader from '../ui/PageLoader.vue'
   transition: background 0.35s ease;
 }
 
-.bg-orbs {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
-}
-
-.orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(90px);
-}
-
-.orb--violet {
-  width: 800px;
-  height: 800px;
-  background: radial-gradient(circle, #22c55e 0%, transparent 70%);
-  top: -180px;
-  left: 22%;
-  opacity: 0.28;
-  animation: floatOrb 14s ease-in-out infinite alternate;
-}
-
-.orb--emerald {
-  width: 560px;
-  height: 560px;
-  background: radial-gradient(circle, #4ade80 0%, transparent 70%);
-  bottom: 0;
-  right: 6%;
-  opacity: 0.18;
-  animation: floatOrb 17s ease-in-out infinite alternate-reverse;
-}
-
-.orb--rose {
-  width: 440px;
-  height: 440px;
-  background: radial-gradient(circle, #f87171 0%, transparent 70%);
-  top: 38%;
-  right: -40px;
-  opacity: 0.15;
-  animation: floatOrb 11s ease-in-out infinite alternate;
-}
-
-.orb--indigo {
-  width: 820px;
-  height: 820px;
-  background: radial-gradient(circle, #1a6b3c 0%, transparent 70%);
-  bottom: -120px;
-  left: 32%;
-  opacity: 0.24;
-  animation: floatOrb 20s ease-in-out infinite alternate-reverse;
-}
-
-@keyframes floatOrb {
-  0%   { transform: translate(0px, 0px) scale(1); }
-  50%  { transform: translate(28px, -22px) scale(1.05); }
-  100% { transform: translate(-22px, 28px) scale(0.95); }
-}
 
 .app-layout__main {
   margin-left: 260px;
