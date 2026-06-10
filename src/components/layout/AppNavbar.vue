@@ -624,4 +624,38 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   .mobile-nav        { display: flex; }
   .mobile-bottom-nav { display: flex; }
 }
+
+/* ══════════════════════════════
+   LIGHT MODE OVERRIDES
+   ══════════════════════════════ */
+[data-theme="light"] .bn-item {
+  color: rgba(12, 10, 30, 0.38);
+}
+[data-theme="light"] .bn-item:not(.bn-item--active):hover {
+  color: rgba(12, 10, 30, 0.72);
+  background: rgba(12, 10, 30, 0.06);
+}
+[data-theme="light"] .bn-item--active {
+  background: linear-gradient(145deg, rgba(245, 158, 11, 0.22), rgba(180, 83, 9, 0.28));
+  border: 1px solid rgba(245, 158, 11, 0.45);
+  color: #b45309;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.15) inset;
+}
+[data-theme="light"] .mobile-bottom-nav {
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+}
+[data-theme="light"] .mn-hamburger {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+[data-theme="light"] .mn-bar {
+  background: rgba(12, 10, 30, 0.55);
+}
+[data-theme="light"] .mn-icon-btn {
+  border-color: rgba(0, 0, 0, 0.1);
+  color: rgba(12, 10, 30, 0.55);
+}
+[data-theme="light"] .mn-icon-btn:hover {
+  color: rgba(12, 10, 30, 0.85);
+}
 </style>
