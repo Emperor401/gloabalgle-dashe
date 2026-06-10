@@ -369,6 +369,8 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { useToast } from '../composables/useToast.js'
+const { error: toastError } = useToast()
 
 /* ── State ── */
 const balance      = ref(0)
@@ -455,7 +457,16 @@ function copyText(text) {
 }
 
 function confirmFunds() {
-  if (!fundAmount.value || fundAmount.value < 100) return
+  if (!fundAmount.value || fundAmount.value < 100) {
+    toastError('Invalid amount', 'Minimum top-up amount is ₦100.')
+    return
+  }
+  if (payMethod.value === 'card') {
+    const rawCard = cardNumber.value.replace(/\s/g, '')
+    if (rawCard.length < 16)                                          { toastError('Card number required',  'Enter a valid 16-digit card number.');       return }
+    if (!/^\d{2}\/\d{2}$/.test(cardExpiry.value))                    { toastError('Expiry required',       'Enter expiry in MM/YY format.');             return }
+    if (cardCvv.value.length < 3)                                     { toastError('CVV required',          'Enter a valid 3-digit CVV.');                return }
+  }
   const amount = Number(fundAmount.value)
 
   transactions.value.unshift({

@@ -306,6 +306,8 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { useToast } from '../composables/useToast.js'
+const { error: toastError } = useToast()
 
 /* ── State ── */
 const modal          = ref(false)
@@ -427,7 +429,14 @@ function removeFile(i) { form.value.files.splice(i, 1) }
 /* ── Submit ── */
 function submitReport() {
   submitAttempted.value = true
-  if (!form.value.message.trim()) return
+  if (!form.value.category) {
+    toastError('Category required', 'Please select a complaint category.')
+    return
+  }
+  if (!form.value.message.trim()) {
+    toastError('Message required', 'Please describe your issue before submitting.')
+    return
+  }
 
   submitting.value = true
   setTimeout(() => {

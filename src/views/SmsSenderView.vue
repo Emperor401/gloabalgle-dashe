@@ -381,6 +381,8 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
+import { useToast } from '../composables/useToast.js'
+const { success: toastSuccess, error: toastError } = useToast()
 
 const router = useRouter()
 
@@ -504,6 +506,11 @@ function showToast(type, msg) {
 }
 
 function sendSMS() {
+  if (!senderIDValid.value)              { toastError('Sender ID required',  'Enter a valid alphanumeric Sender ID (max 11 chars).'); return }
+  if (cleanPhone.value.length < 7)       { toastError('Phone required',      'Enter a valid recipient phone number.');                return }
+  if (!message.value.trim())             { toastError('Message required',    'Please write a message before sending.');               return }
+  if (scheduleForLater.value && !scheduleDate.value) { toastError('Date required', 'Please select a schedule date.');                return }
+  if (scheduleForLater.value && !scheduleTime.value) { toastError('Time required', 'Please select a schedule time.');                return }
   if (!canSend.value) return
   const entry = {
     id:       Date.now(),
@@ -531,6 +538,9 @@ function sendSMS() {
 }
 
 function sendBulkSMS() {
+  if (!bulkSenderID.value.trim())        { toastError('Sender ID required',   'Enter a Sender ID for bulk SMS.');          return }
+  if (!bulkNumbers.value.trim())         { toastError('Recipients required',  'Enter at least one recipient number.');     return }
+  if (!bulkMessage.value.trim())         { toastError('Message required',     'Please write a message before sending.');  return }
   if (!canSendBulk.value) return
   bulkRecipients.value.forEach(num => {
     smsHistory.value.unshift({
@@ -544,7 +554,7 @@ function sendBulkSMS() {
       date:     new Date().toLocaleString('en-US', { month:'short', day:'numeric', hour:'2-digit', minute:'2-digit' }),
     })
   })
-  showToast('success', `${bulkRecipients.value.length} SMS messages sent successfully.`)
+  toastSuccess('Bulk SMS sent!', `${bulkRecipients.value.length} messages sent successfully.`)
   bulkSenderID.value = ''
   bulkNumbers.value  = ''
   bulkMessage.value  = ''

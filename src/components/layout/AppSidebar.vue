@@ -1,4 +1,8 @@
-﻿<!-- src/components/layout/AppSidebar.vue -->
+﻿
+
+
+
+<!-- src/components/layout/AppSidebar.vue -->
 <template>
 
   <!-- Backdrop (mobile only) -->

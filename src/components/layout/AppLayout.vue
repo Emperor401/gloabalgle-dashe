@@ -3,6 +3,7 @@
   <div class="app-layout">
 
     <PageLoader />
+    <ToastContainer />
 
     <AppSidebar />
 
@@ -24,6 +25,7 @@
 import AppSidebar from './AppSidebar.vue'
 import AppNavbar from './AppNavbar.vue'
 import PageLoader from '../ui/PageLoader.vue'
+import ToastContainer from '../ui/ToastContainer.vue'
 </script>
 
 <style scoped>

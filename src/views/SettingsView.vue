@@ -420,7 +420,7 @@
                   </svg>
                   Send test email
                 </button>
-                <button class="set-primary-btn" @click="showToast('success','SMTP settings saved.')">
+                <button class="set-primary-btn" @click="saveSMTP">
                   Save SMTP settings
                 </button>
               </div>
@@ -517,6 +517,8 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { useToast } from '../composables/useToast.js'
+const { success: toastSuccess, error: toastError } = useToast()
 
 /* ── Tabs ── */
 const tabs = [
@@ -549,9 +551,18 @@ function startEdit(field) {
   editVals.value[field] = profile.value[field]
 }
 function saveField(field) {
+  const val = editVals.value[field]?.toString().trim()
+  if (!val) {
+    toastError('Field required', 'This field cannot be empty.')
+    return
+  }
+  if (field === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+    toastError('Invalid email', 'Please enter a valid email address.')
+    return
+  }
   profile.value[field] = editVals.value[field]
   editing.value[field] = false
-  showToast('success', 'Profile updated successfully.')
+  toastSuccess('Profile updated', 'Your changes have been saved.')
 }
 
 /* ── Security ── */
@@ -604,15 +615,30 @@ const refStats = [
   { label: 'Total Earned',    val: '₦0', color: 'amber', icon: '<line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>' },
 ]
 
+/* ── SMTP save ── */
+function saveSMTP() {
+  if (!smtp.value.host.trim())      { toastError('SMTP Host required', 'Please enter your SMTP host.');        return }
+  if (!smtp.value.port)             { toastError('Port required',      'Please enter the SMTP port number.');  return }
+  if (!smtp.value.username.trim())  { toastError('Username required',  'Please enter your SMTP username.');    return }
+  if (!smtp.value.password)         { toastError('Password required',  'Please enter your SMTP password.');    return }
+  if (!smtp.value.fromName.trim())  { toastError('From Name required', 'Please enter the sender name.');       return }
+  if (!smtp.value.fromEmail.trim()) { toastError('From Email required','Please enter the sender email.');      return }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(smtp.value.fromEmail)) {
+    toastError('Invalid email', 'From Email must be a valid email address.')
+    return
+  }
+  toastSuccess('SMTP saved', 'Your SMTP settings have been saved successfully.')
+}
+
 /* ── Utilities ── */
 const toast = ref(null)
 function showToast(type, msg) {
-  toast.value = { type, msg }
-  setTimeout(() => { toast.value = null }, 3000)
+  if (type === 'success') toastSuccess(msg)
+  else toastError(msg)
 }
 function copyText(text) {
   navigator.clipboard?.writeText(text)
-  showToast('success', 'Copied to clipboard!')
+  toastSuccess('Copied!', 'Text copied to clipboard.')
 }
 </script>
 

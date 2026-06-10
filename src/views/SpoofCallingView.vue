@@ -432,6 +432,8 @@
 <script setup>
 import { ref, computed, onBeforeUnmount } from 'vue'
 import { useRouter } from 'vue-router'
+import { useToast } from '../composables/useToast.js'
+const { success: toastSuccess, error: toastError } = useToast()
 
 const router = useRouter()
 
@@ -521,6 +523,10 @@ function handleDrop(e)   { uploadedFile.value = e.dataTransfer.files[0] ?? null 
 function handleFileSelect(e) { uploadedFile.value = e.target.files[0] ?? null }
 
 function startCall() {
+  if (!recipientPhone.value.trim())                                        { toastError('Recipient required',  'Enter the phone number to call.');                    return }
+  if (activeTab.value === 'conversational' && !aiPrompt.value.trim())      { toastError('AI Goal required',   'Enter the AI goal/prompt for the call.');              return }
+  if (activeTab.value === 'script' && !scriptText.value.trim())            { toastError('Script required',    'Please write a script before starting the call.');     return }
+  if (activeTab.value === 'speak' && !uploadedFile.value)                  { toastError('Voice file required','Please upload a voice sample.');                       return }
   if (!canCall.value) return
   callState.value = 'ringing'
   isMuted.value   = false

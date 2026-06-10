@@ -83,7 +83,7 @@
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
               Preview
             </button>
-            <button class="btn-send-email">
+            <button class="btn-send-email" @click="sendEmail">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
               Send Email
             </button>
@@ -146,7 +146,9 @@
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue'
+import { ref } from 'vue'
+import { useToast } from '../composables/useToast.js'
+const { success: toastSuccess, error: toastError } = useToast()
 
 const mode        = ref('single')
 const toInput     = ref('')
@@ -177,6 +179,27 @@ const drafts = [
 ]
 
 function loadDraft(d) { subject.value = d.subject }
+
+function sendEmail() {
+  if (mode.value === 'single' && toChips.value.length === 0 && !toInput.value.trim()) {
+    toastError('Recipient required', 'Please add at least one recipient email address.')
+    return
+  }
+  if (!subject.value.trim()) {
+    toastError('Subject required', 'Please enter an email subject.')
+    return
+  }
+  if (!body.value.trim()) {
+    toastError('Message required', 'Please write the email body before sending.')
+    return
+  }
+  const count = mode.value === 'bulk' ? bulkCount.toLocaleString() : toChips.value.length || 1
+  toastSuccess('Email sent!', `Successfully sent to ${count} recipient${mode.value === 'bulk' ? 's' : ''}.`)
+  toChips.value = []
+  toInput.value = ''
+  subject.value = ''
+  body.value    = ''
+}
 
 const quickStats = [
   { label:'Emails Sent',   value:'12,480', color:'var(--t1)'  },

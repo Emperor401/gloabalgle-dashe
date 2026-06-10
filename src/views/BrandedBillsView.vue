@@ -83,7 +83,7 @@
           </div>
           <div class="modal-footer">
             <button class="btn-cancel" @click="active = null">Cancel</button>
-            <button class="btn-generate" @click="active = null">
+            <button class="btn-generate" @click="generateDoc">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
               Generate & Send
             </button>
@@ -97,6 +97,8 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
+import { useToast } from '../composables/useToast.js'
+const { success: toastSuccess, error: toastError } = useToast()
 
 const active   = ref(null)
 const formData = reactive({})
@@ -104,6 +106,31 @@ const formData = reactive({})
 function open(card) {
   active.value = card
   Object.keys(formData).forEach(k => delete formData[k])
+}
+
+function generateDoc() {
+  const requiredFields = active.value.fields.filter(f => !f.label.includes('optional'))
+  for (const f of requiredFields) {
+    const val = formData[f.key]
+    if (!val && val !== 0) {
+      toastError('Required field missing', `"${f.label}" is required.`)
+      return
+    }
+    if (typeof val === 'string' && !val.trim()) {
+      toastError('Required field missing', `"${f.label}" cannot be empty.`)
+      return
+    }
+    if (f.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+      toastError('Invalid email', `"${f.label}" must be a valid email address.`)
+      return
+    }
+    if (f.type === 'number' && Number(val) <= 0) {
+      toastError('Invalid amount', 'Amount must be greater than zero.')
+      return
+    }
+  }
+  toastSuccess('Document generated!', `${active.value.title} has been generated and sent.`)
+  active.value = null
 }
 
 const recentDocs = [
