@@ -512,7 +512,7 @@ function showToast(type, msg) {
   border-radius: 10px; padding: 10px 18px; font-size: 0.83rem;
   font-weight: 600; color: var(--t2); cursor: pointer;
   font-family: inherit; transition: all 0.2s;
-  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
 }
 .bill-hist-btn:hover { border-color: rgba(34,197,94,.35); color: var(--t1); }
 
@@ -522,7 +522,7 @@ function showToast(type, msg) {
 }
 .bill-stat {
   background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft);
   border-radius: 18px; padding: 20px 22px;
   display: flex; flex-direction: column; gap: 8px;
@@ -578,7 +578,7 @@ function showToast(type, msg) {
   display: flex; gap: 0;
   background: var(--glass); border: 1px solid var(--border-soft);
   border-radius: 10px; padding: 4px;
-  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
 }
 .bill-cycle-btn {
   display: flex; align-items: center; gap: 6px;
@@ -598,7 +598,7 @@ function showToast(type, msg) {
   border-radius: 10px; padding: 9px 16px; font-size: 0.8rem;
   font-weight: 600; color: var(--t2); cursor: pointer;
   font-family: inherit; transition: all 0.2s;
-  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
 }
 .bill-redeem-btn:hover { border-color: rgba(167,139,250,.35); color: var(--t1); }
 
@@ -612,7 +612,7 @@ function showToast(type, msg) {
 
 .bill-plan-card {
   background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft);
   border-radius: 20px; padding: 24px 20px;
   display: flex; flex-direction: column; gap: 18px;
@@ -686,7 +686,7 @@ function showToast(type, msg) {
 /* ── FAQ ── */
 .bill-notes {
   background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft);
   border-radius: 20px; overflow: hidden;
 }
@@ -716,7 +716,7 @@ function showToast(type, msg) {
   display: flex; align-items: center; justify-content: center; padding: 24px;
 }
 .bill-modal {
-  background: var(--modal-glass); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border: 1px solid var(--modal-border);
+  background: var(--modal-glass); backdrop-filter: blur(24px) saturate(180%); border: 1px solid var(--modal-border);
   border-radius: 24px; padding: 28px;
   width: 100%; max-width: 580px; max-height: 88vh; overflow-y: auto;
   display: flex; flex-direction: column; gap: 0;

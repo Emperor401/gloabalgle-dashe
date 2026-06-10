@@ -1,4 +1,4 @@
-<!-- src/components/ui/CommunityModal.vue -->
+﻿<!-- src/components/ui/CommunityModal.vue -->
 <template>
   <Teleport to="body">
     <Transition name="modal">
@@ -102,7 +102,7 @@ onBeforeUnmount(() => {
   display: flex; align-items: center; justify-content: center;
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+ 
 }
 
 /* Card */
@@ -110,7 +110,7 @@ onBeforeUnmount(() => {
   position: relative;
   background: var(--modal-glass);
   backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
+ 
   border: 1px solid var(--modal-border);
   border-radius: 24px;
   padding: 36px 32px 28px;

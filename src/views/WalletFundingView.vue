@@ -315,7 +315,7 @@ function selectCoin(coin) {
   border-radius: 10px; padding: 9px 16px; font-size: 0.82rem;
   font-weight: 600; color: var(--t2); cursor: pointer;
   font-family: inherit; transition: border-color 0.2s, color 0.2s;
-  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
 }
 .wf-history-btn:hover { border-color: rgba(34,197,94,.35); color: var(--t1); }
 
@@ -323,7 +323,7 @@ function selectCoin(coin) {
 .wf-plan-card {
   background: var(--glass);
   backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+ 
   border: 1px solid var(--border-soft);
   border-radius: 20px;
   padding: 24px 28px;
@@ -384,7 +384,7 @@ function selectCoin(coin) {
 .wf-card {
   background: var(--glass);
   backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+ 
   border: 1px solid var(--border-soft);
   border-radius: 18px;
   padding: 20px;
@@ -426,7 +426,7 @@ function selectCoin(coin) {
 .wf-howto {
   background: var(--glass);
   backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+ 
   border: 1px solid var(--border-soft);
   border-radius: 20px;
   padding: 24px 28px;
@@ -459,7 +459,7 @@ function selectCoin(coin) {
 .modal-box {
   background: var(--modal-glass);
   backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
+ 
   border: 1px solid var(--modal-border);
   border-radius: 24px;
   padding: 28px;

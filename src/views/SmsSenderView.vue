@@ -586,7 +586,7 @@ function sendBulkSMS() {
 }
 .sms-stat {
   background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft);
   border-radius: 16px; padding: 18px 22px;
   display: flex; flex-direction: column; gap: 8px;
@@ -602,7 +602,7 @@ function sendBulkSMS() {
 .sms-tab-bar {
   display: flex; gap: 4px;
   background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft);
   border-radius: 14px; padding: 5px; width: fit-content;
 }
@@ -627,7 +627,7 @@ function sendBulkSMS() {
 /* ── Form Card ── */
 .sms-form-card {
   background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft);
   border-radius: 20px; padding: 28px;
   display: flex; flex-direction: column; gap: 20px;
@@ -821,7 +821,7 @@ function sendBulkSMS() {
 .sms-preview-stats {
   display: flex; gap: 14px; justify-content: center;
   background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft);
   border-radius: 14px; padding: 14px 18px;
   width: 100%; box-sizing: border-box;
@@ -836,7 +836,7 @@ function sendBulkSMS() {
 /* ── History ── */
 .sms-history {
   background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft);
   border-radius: 20px; overflow: hidden;
 }

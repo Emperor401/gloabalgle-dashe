@@ -187,7 +187,7 @@ const cards = [
 .gen-card {
   background: var(--glass);
   backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+ 
   border: 1px solid var(--border-soft);
   border-radius: 18px;
   padding: 28px 26px 30px;
@@ -205,7 +205,7 @@ const cards = [
 .gen-card__desc  { font-size: 0.8rem; color: var(--accent); line-height: 1.55; margin: 0; }
 
 /* ── Recent Panel ── */
-.recent-panel { background:var(--glass); backdrop-filter:blur(20px) saturate(180%); -webkit-backdrop-filter:blur(20px) saturate(180%); border:1px solid var(--border-soft); border-radius:18px; padding:20px 22px; }
+.recent-panel { background:var(--glass); backdrop-filter:blur(20px) saturate(180%); border:1px solid var(--border-soft); border-radius:18px; padding:20px 22px; }
 .recent-head { display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:14px; }
 .recent-title { font-size:0.95rem; font-weight:700; color:var(--t1); margin:0 0 3px; }
 .recent-sub { font-size:0.72rem; color:var(--t4); margin:0; }
@@ -230,10 +230,10 @@ const cards = [
   position: fixed; inset: 0; z-index: 10000;
   display: flex; align-items: center; justify-content: center;
   background: rgba(0,0,0,0.5);
-  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
 }
 .modal-card {
-  background: var(--modal-glass); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+  background: var(--modal-glass); backdrop-filter: blur(24px) saturate(180%);
   border: 1px solid var(--modal-border); border-radius: 22px;
   padding: 28px; width: 100%; max-width: 520px;
   display: flex; flex-direction: column; gap: 20px;

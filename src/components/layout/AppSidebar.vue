@@ -271,7 +271,7 @@ const navItems = [
   flex-direction: column;
   background: rgba(255, 255, 255, 0.025);
   backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+ 
   border-right: 1px solid var(--border-soft);
   position: fixed;
   top: 0;
@@ -302,7 +302,7 @@ const navItems = [
     z-index: 100;
     width: 280px;
     background: var(--bg);
-    backdrop-filter: none; -webkit-backdrop-filter: none;
+    backdrop-filter: none;
     border-right: 1px solid var(--border-soft);
   }
   .sidebar--open { transform: translateX(0); }

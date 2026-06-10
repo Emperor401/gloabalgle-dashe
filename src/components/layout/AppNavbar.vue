@@ -356,7 +356,7 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 24px;
   background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
   border-bottom: 1px solid var(--border-soft);
   z-index: 90;
   transition: background 0.35s ease, border-color 0.35s ease;
@@ -421,7 +421,7 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   display: none;
   position: fixed; top: 0; left: 0; right: 0; height: 64px; z-index: 90;
   background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
   border-bottom: 1px solid var(--border-soft);
   align-items: center; justify-content: space-between;
   padding: 0 16px; gap: 12px;
@@ -496,7 +496,7 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 .notif-dropdown {
   position: absolute; top: calc(100% + 12px); right: 0;
   width: 340px; background: var(--dropdown-bg);
-  backdrop-filter: blur(28px) saturate(200%); -webkit-backdrop-filter: blur(28px) saturate(200%);
+  backdrop-filter: blur(28px) saturate(200%);
   border: 1px solid var(--dropdown-border); border-radius: 18px; overflow: hidden; z-index: 200;
 }
 .notif-dropdown--mobile { right: -40px; width: min(340px, calc(100vw - 32px)); }
@@ -581,7 +581,7 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   z-index: 100;
   background: var(--glass);
   backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+ 
   border: 1px solid var(--border);
   border-radius: 26px;
   padding: 7px;

@@ -291,7 +291,7 @@ function showToast(type, msg) {
 /* ── Empty state ── */
 .tut-empty-container {
   background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
   border: 1.5px dashed var(--border-soft); border-radius: 20px;
   padding: 48px 24px; display: flex; flex-direction: column;
   align-items: center; text-align: center; gap: 10px;
@@ -331,7 +331,7 @@ function showToast(type, msg) {
 /* ── Card ── */
 .tut-card {
   background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft); border-radius: 20px;
   overflow: hidden; cursor: pointer; transition: border-color 0.22s, transform 0.22s;
   display: flex; flex-direction: column;
@@ -426,7 +426,7 @@ function showToast(type, msg) {
 .tut-modal {
   width: 100%; max-width: 620px; max-height: 88vh; overflow-y: auto;
   background: var(--modal-glass);
-  backdrop-filter: blur(32px) saturate(200%); -webkit-backdrop-filter: blur(32px) saturate(200%);
+  backdrop-filter: blur(32px) saturate(200%);
   border: 1px solid var(--modal-border); border-radius: 24px;
   scrollbar-width: none;
 }

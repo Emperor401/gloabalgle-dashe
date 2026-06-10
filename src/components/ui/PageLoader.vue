@@ -1,4 +1,4 @@
-<!-- src/components/ui/PageLoader.vue -->
+﻿<!-- src/components/ui/PageLoader.vue -->
 <template>
   <Transition name="loader">
     <div v-if="loading" class="page-loader">
@@ -28,7 +28,7 @@ const { loading } = useLoader()
   justify-content: center;
   background: rgba(12, 13, 31, 0.45);
   backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+ 
 }
 
 .spinner {

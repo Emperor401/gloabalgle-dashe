@@ -633,7 +633,7 @@ function copyText(text) {
 .set-subnav {
   background: var(--glass);
   backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+ 
   border: 1px solid var(--border-soft);
   border-radius: 18px;
   overflow: hidden;
@@ -684,7 +684,7 @@ function copyText(text) {
 /* ── ID card ── */
 .set-id-card {
   background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft); border-radius: 20px;
   padding: 20px 22px; display: flex; align-items: center; gap: 18px;
   position: relative;
@@ -715,7 +715,7 @@ function copyText(text) {
 .set-field-row {
   display: flex; align-items: center; gap: 14px;
   background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft);
   padding: 15px 18px; transition: border-color 0.2s;
 }
@@ -777,7 +777,7 @@ function copyText(text) {
 /* ── Cards ── */
 .set-card {
   background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft);
   border-radius: 20px; padding: 22px;
   display: flex; flex-direction: column; gap: 14px;
@@ -931,7 +931,7 @@ function copyText(text) {
 }
 .set-ref-stat {
   background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft); border-radius: 16px;
   padding: 17px; display: flex; align-items: center; gap: 14px;
 }

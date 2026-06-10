@@ -622,7 +622,7 @@ onBeforeUnmount(() => {
   border-radius: 10px; padding: 9px 16px; font-size: 0.82rem;
   font-weight: 600; color: var(--t2); cursor: pointer;
   font-family: inherit; transition: border-color 0.2s, color 0.2s;
-  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
 }
 .sc-refresh-btn:hover { border-color: rgba(167,139,250,.35); color: var(--t1); }
 
@@ -632,7 +632,7 @@ onBeforeUnmount(() => {
 }
 .sc-stat {
   background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft);
   border-radius: 16px; padding: 18px 22px;
   display: flex; flex-direction: column; gap: 6px;
@@ -647,7 +647,7 @@ onBeforeUnmount(() => {
 .sc-tab-bar {
   display: flex; gap: 4px;
   background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft);
   border-radius: 14px; padding: 5px; width: fit-content;
 }
@@ -666,7 +666,7 @@ onBeforeUnmount(() => {
 /* ── Form card ── */
 .sc-form-card {
   background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft);
   border-radius: 20px; padding: 28px;
   display: flex; flex-direction: column; gap: 20px;
@@ -805,7 +805,7 @@ onBeforeUnmount(() => {
 /* ── Recent calls ── */
 .sc-recent-card {
   background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft);
   border-radius: 20px; overflow: hidden;
 }
@@ -865,7 +865,7 @@ onBeforeUnmount(() => {
 }
 .sc-call-modal {
   position: relative;
-  background: var(--modal-glass); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border: 1px solid var(--modal-border);
+  background: var(--modal-glass); backdrop-filter: blur(24px) saturate(180%); border: 1px solid var(--modal-border);
   border-radius: 28px; padding: 44px 40px 36px;
   width: 100%; max-width: 380px;
   display: flex; flex-direction: column; align-items: center; gap: 14px;

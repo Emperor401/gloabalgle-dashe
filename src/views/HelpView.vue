@@ -327,7 +327,7 @@ function showToast(type, msg) {
 }
 .help-cat {
   background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft); border-radius: 16px;
   padding: 18px 14px; display: flex; flex-direction: column;
   align-items: center; gap: 8px; text-align: center;
@@ -363,7 +363,7 @@ function showToast(type, msg) {
 /* ── FAQ Panel ── */
 .help-faq {
   background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft); border-radius: 20px;
   padding: 22px; display: flex; flex-direction: column; gap: 16px;
 }
@@ -443,7 +443,7 @@ function showToast(type, msg) {
 
 .help-card {
   background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft); border-radius: 20px;
   padding: 20px; display: flex; flex-direction: column; gap: 12px;
 }

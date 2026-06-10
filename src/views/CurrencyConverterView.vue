@@ -316,7 +316,7 @@ onMounted(async () => {
 .cc-card {
   background: var(--glass);
   backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+ 
   border: 1px solid var(--border-soft);
   border-radius: 20px;
   padding: 28px;
@@ -363,7 +363,7 @@ onMounted(async () => {
 /* dropdown */
 .cc-drop {
   position: absolute; top: calc(100% + 8px); left: 0; min-width: 210px;
-  background: var(--modal-glass); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+  background: var(--modal-glass); backdrop-filter: blur(24px) saturate(180%);
   border: 1px solid var(--modal-border);
   border-radius: 14px; padding: 8px; z-index: 100;
   max-height: 240px; overflow-y: auto;
@@ -423,7 +423,7 @@ onMounted(async () => {
 .cc-pair-card {
   background: var(--glass);
   backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+ 
   border: 1px solid var(--border-soft);
   border-radius: 14px; padding: 16px;
   cursor: pointer; transition: border-color 0.2s, transform 0.2s;

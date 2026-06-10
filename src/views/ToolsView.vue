@@ -117,7 +117,7 @@ const tools = [
 .tool-card {
   background: var(--glass);
   backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+ 
   border: 1px solid var(--border-soft);
   border-radius: 20px;
   padding: 24px;
