@@ -834,4 +834,6 @@ const navItems = [
 /* ── Light mode surface fixes ── */
 [data-theme="light"] .sidebar__close-btn { background: var(--glass); }
 [data-theme="light"] .sidebar__close-btn:hover { background: var(--glass-hover); }
+[data-theme="light"] .sidebar__scroll::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.15); }
+[data-theme="light"] .sidebar__scroll::-webkit-scrollbar-thumb:hover { background: rgba(0, 0, 0, 0.28); }
 </style>
