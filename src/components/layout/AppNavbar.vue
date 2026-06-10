@@ -575,35 +575,42 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 .mobile-bottom-nav {
   display: none;
   position: fixed;
-  bottom: 18px;
+  bottom: 22px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 100;
   background: var(--glass);
   backdrop-filter: blur(20px) saturate(180%);
- 
-  border: 1px solid var(--border);
-  border-radius: 26px;
+  border: 1px solid var(--border-soft);
+  border-radius: 30px;
   padding: 7px;
-  gap: 4px;
+  gap: 6px;
   align-items: center;
 }
 
 .bn-item {
-  width: 54px; height: 54px;
-  border-radius: 18px;
-  display: flex; align-items: center; justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
-  transition: background 0.22s ease, border-color 0.22s ease, color 0.22s ease;
+  transition: all 0.22s ease;
   flex-shrink: 0;
-  border: 1px solid transparent;
-  color: var(--t3);
+  color: rgba(255, 255, 255, 0.28);
+  position: relative;
+}
+
+.bn-item:not(.bn-item--active):hover {
+  color: rgba(255, 255, 255, 0.55);
 }
 
 .bn-item--active {
-  background: var(--glass-hover);
-  border-color: rgba(217, 119, 6, 0.3);
-  color: #d97706;
+  background: linear-gradient(145deg, rgba(245, 158, 11, 0.32), rgba(180, 83, 9, 0.42));
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  color: #f59e0b;
+  box-shadow: 0 4px 18px rgba(245, 158, 11, 0.18) inset;
 }
 
 /* ══════════════════════════════

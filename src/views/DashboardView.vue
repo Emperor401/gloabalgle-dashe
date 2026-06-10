@@ -52,55 +52,45 @@
 
         <!-- Action buttons -->
         <div class="bal-actions">
-          <!-- Send -->
-          <div class="bal-action">
-            <button class="ba-btn ba-btn--blue" @click="router.push('/transactions')">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="22" y1="2" x2="11" y2="13"/>
-                <polygon points="22 2 15 22 11 13 2 9 22 2" fill="#fff" stroke="none"/>
+          <!-- Email Services -->
+          <button class="ba-tile" @click="router.push('/customers')">
+            <span class="ba-tile__icon ba-tile__icon--blue">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
               </svg>
-            </button>
-            <span class="ba-label">Send</span>
-          </div>
-          <!-- Add Funds -->
-          <div class="bal-action">
-            <button class="ba-btn ba-btn--green" @click="router.push('/wallet')">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round">
-                <line x1="12" y1="5" x2="12" y2="19"/>
-                <line x1="5" y1="12" x2="19" y2="12"/>
+            </span>
+            <span class="ba-tile__label">Email</span>
+          </button>
+          <!-- Generator -->
+          <button class="ba-tile" @click="router.push('/email-services/branded-bills')">
+            <span class="ba-tile__icon ba-tile__icon--amber">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
               </svg>
-            </button>
-            <span class="ba-label">Add Funds</span>
-          </div>
-          <!-- Message -->
-          <div class="bal-action">
-            <button class="ba-btn ba-btn--pink" @click="router.push('/complaint')">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </span>
+            <span class="ba-tile__label">Generator</span>
+          </button>
+          <!-- Websites -->
+          <button class="ba-tile" @click="router.push('/analytics')">
+            <span class="ba-tile__icon ba-tile__icon--purple">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
               </svg>
-            </button>
-            <span class="ba-label">Message</span>
-          </div>
-          <!-- PayPal -->
-          <div class="bal-action">
-            <button class="ba-btn ba-btn--navy" @click="router.push('/billing')">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <text x="5" y="17" font-size="15" font-weight="800" font-family="Arial,sans-serif" fill="#fff">P</text>
+            </span>
+            <span class="ba-tile__label">Websites</span>
+          </button>
+          <!-- Tools -->
+          <button class="ba-tile" @click="router.push('/tools')">
+            <span class="ba-tile__icon ba-tile__icon--green">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
               </svg>
-            </button>
-            <span class="ba-label">PayPal</span>
-          </div>
-          <!-- SMS Alert -->
-          <div class="bal-action">
-            <button class="ba-btn ba-btn--cyan" @click="router.push('/tools/sms-sender')">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                <line x1="9" y1="10" x2="15" y2="10" stroke="#fff" stroke-width="2"/>
-                <line x1="9" y1="13" x2="12" y2="13" stroke="#fff" stroke-width="2"/>
-              </svg>
-            </button>
-            <span class="ba-label">SMS Alert</span>
-          </div>
+            </span>
+            <span class="ba-tile__label">Tools</span>
+          </button>
         </div>
 
 
@@ -574,8 +564,8 @@ function fmtAmount(amount, currency = 'NGN') {
 .add-funds-btn {
   padding: 10px 20px;
   border-radius: 999px;
-  background: var(--t1);
-  color: var(--bg);
+  background: var(--accent);
+  color: #fff;
   border: none;
   font-family: 'Satoshi', sans-serif;
   font-size: 0.85rem;
@@ -583,9 +573,9 @@ function fmtAmount(amount, currency = 'NGN') {
   cursor: pointer;
   white-space: nowrap;
   flex-shrink: 0;
-  transition: opacity 0.2s;
+  transition: opacity 0.2s, transform 0.15s;
 }
-.add-funds-btn:hover { opacity: 0.85; }
+.add-funds-btn:hover { opacity: 0.88; transform: translateY(-1px); }
 
 /* Auto deposit toggle */
 .auto-dep-row {
@@ -621,35 +611,43 @@ function fmtAmount(amount, currency = 'NGN') {
 .bal-actions {
   display: flex;
   align-items: center;
-  gap: 22px;
-  margin-top: 4px;
+  gap: 24px;
+  margin-top: 6px;
+  flex-wrap: wrap;
 }
-.bal-action {
+
+.ba-tile {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
-}
-.ba-btn {
-  width: 54px; height: 54px;
-  border-radius: 50%;
+  padding: 0;
+  background: none;
   border: none;
-  display: flex; align-items: center; justify-content: center;
   cursor: pointer;
-  transition: transform 0.18s ease, filter 0.18s ease;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+  flex-shrink: 0;
+  font-family: 'Satoshi', sans-serif;
+}
+.ba-tile:hover { transform: translateY(-2px); opacity: 0.85; }
+.ba-tile:active { transform: translateY(0) scale(0.97); }
+
+.ba-tile__icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
 }
-.ba-btn:hover  { transform: translateY(-3px); filter: brightness(1.12); }
-.ba-btn:active { transform: translateY(0px) scale(0.95); }
+.ba-tile__icon--green  { background: rgba(34, 197, 94, 0.15);  color: #22c55e; }
+.ba-tile__icon--amber  { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
+.ba-tile__icon--blue   { background: rgba(96, 165, 250, 0.15); color: #60a5fa; }
+.ba-tile__icon--purple { background: rgba(167, 139, 250, 0.15);color: #a78bfa; }
+.ba-tile__icon--teal   { background: rgba(20, 184, 166, 0.15); color: #14b8a6; }
 
-/* Individual button colors — exact match to reference */
-.ba-btn--blue  { background: #3b82f6; }
-.ba-btn--green { background: #22c55e; }
-.ba-btn--pink  { background: #ec4899; }
-.ba-btn--navy  { background: #1e3a5f; }
-.ba-btn--cyan  { background: #06b6d4; }
-
-.ba-label {
+.ba-tile__label {
   font-size: 0.7rem;
   font-weight: 600;
   color: var(--t2);
@@ -1095,7 +1093,7 @@ function fmtAmount(amount, currency = 'NGN') {
   .b-recent-txn    { grid-column: span 1; }
   .b-recent-pay    { grid-column: span 1; }
   .b-promo-row     { grid-column: span 2; }
-  .bal-actions     { gap: 14px; }
+  .bal-actions     { gap: 8px; }
 }
 @media (max-width: 768px) {
 
@@ -1136,9 +1134,9 @@ function fmtAmount(amount, currency = 'NGN') {
   .add-funds-btn { padding: 9px 16px; font-size: 0.8rem; }
 
   /* Action buttons — evenly spaced */
-  .bal-actions { gap: 0; justify-content: space-between; }
-  .ba-btn       { width: 46px; height: 46px; }
-  .ba-label     { font-size: 0.62rem; }
+  .bal-actions { gap: 16px; justify-content: space-between; }
+  .ba-tile__icon { width: 34px; height: 34px; border-radius: 10px; }
+  .ba-tile__label { font-size: 0.63rem; }
 
   /* Plan stats: 3 cards side-by-side (they're compact enough) */
   .b-plan-row {
@@ -1171,8 +1169,7 @@ function fmtAmount(amount, currency = 'NGN') {
 @media (max-width: 400px) {
   /* Very small screens: plan cards stack */
   .b-plan-row { grid-template-columns: 1fr; }
-  .ba-btn       { width: 40px; height: 40px; }
-  .ba-btn--primary { width: 46px; height: 46px; }
+  .ba-tile__icon { width: 30px; height: 30px; }
 }
 
 /* ── Light mode surface fixes ── */

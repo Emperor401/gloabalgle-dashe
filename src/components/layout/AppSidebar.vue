@@ -191,7 +191,7 @@
     </div>
 
     <!-- Profile strip -->
-    <div class="sidebar__profile">
+    <div class="sidebar__profile" ref="profileRef">
       <div class="profile__avatar-wrap">
         <img
           src="https://api.dicebear.com/9.x/micah/png?seed=Emperor&backgroundColor=0f3d20&baseColor=f9c9b6&earringsProbability=0&facialHairProbability=0&size=34"
@@ -206,11 +206,72 @@
         <span class="profile__name">Daniel</span>
         <span class="profile__role">emprerorsolos@gmail.com</span>
       </div>
-      <div class="profile__menu">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <button class="profile__menu-btn" @click.stop="toggleProfileMenu" :class="{ 'profile__menu-btn--active': profileMenuOpen }" aria-label="Profile options">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="5" r="1" fill="currentColor"/><circle cx="12" cy="12" r="1" fill="currentColor"/><circle cx="12" cy="19" r="1" fill="currentColor"/>
         </svg>
-      </div>
+      </button>
+
+      <!-- Profile dropdown -->
+      <Transition name="profile-drop">
+        <div v-if="profileMenuOpen" class="profile-dropdown" @click.stop>
+
+          <div class="profile-drop__header">
+            <img
+              src="https://api.dicebear.com/9.x/micah/png?seed=Emperor&backgroundColor=0f3d20&baseColor=f9c9b6&earringsProbability=0&facialHairProbability=0&size=40"
+              width="40" height="40" alt="Daniel" class="profile-drop__avatar"
+            />
+            <div class="profile-drop__info">
+              <span class="profile-drop__name">Daniel</span>
+              <span class="profile-drop__email">emprerorsolos@gmail.com</span>
+            </div>
+          </div>
+
+          <div class="profile-drop__divider" />
+
+          <button class="profile-drop__item" @click="goTo('/settings')">
+            <span class="profile-drop__icon profile-drop__icon--blue">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+              </svg>
+            </span>
+            <span class="profile-drop__label">Account Settings</span>
+            <svg class="profile-drop__arrow" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+
+          <button class="profile-drop__item" @click="goTo('/billing')">
+            <span class="profile-drop__icon profile-drop__icon--amber">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+            </span>
+            <span class="profile-drop__label">Billing &amp; Plans</span>
+            <svg class="profile-drop__arrow" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+
+          <button class="profile-drop__item" @click="goTo('/help')">
+            <span class="profile-drop__icon profile-drop__icon--green">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><circle cx="12" cy="17" r="0.5" fill="currentColor"/>
+              </svg>
+            </span>
+            <span class="profile-drop__label">Help &amp; Support</span>
+            <svg class="profile-drop__arrow" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+
+          <div class="profile-drop__divider" />
+
+          <button class="profile-drop__item profile-drop__item--danger" @click="logout">
+            <span class="profile-drop__icon profile-drop__icon--red">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/>
+              </svg>
+            </span>
+            <span class="profile-drop__label">Log Out</span>
+          </button>
+
+        </div>
+      </Transition>
     </div>
 
   </aside>
@@ -231,6 +292,33 @@ function goUpgrade() {
   router.push('/billing')
 }
 
+/* Profile dropdown */
+const profileMenuOpen = ref(false)
+const profileRef = ref(null)
+
+function toggleProfileMenu() {
+  profileMenuOpen.value = !profileMenuOpen.value
+}
+
+function goTo(path) {
+  profileMenuOpen.value = false
+  closeSidebar()
+  router.push(path)
+}
+
+function logout() {
+  profileMenuOpen.value = false
+  closeSidebar()
+  localStorage.removeItem('theme')
+  router.push('/')
+}
+
+function handleOutsideClick(e) {
+  if (profileRef.value && !profileRef.value.contains(e.target)) {
+    profileMenuOpen.value = false
+  }
+}
+
 /* Track theme so the right logo shows */
 const isLight = ref(document.documentElement.getAttribute('data-theme') === 'light')
 
@@ -243,8 +331,12 @@ onMounted(() => {
     attributes: true,
     attributeFilter: ['data-theme'],
   })
+  document.addEventListener('click', handleOutsideClick)
 })
-onBeforeUnmount(() => themeObserver?.disconnect())
+onBeforeUnmount(() => {
+  themeObserver?.disconnect()
+  document.removeEventListener('click', handleOutsideClick)
+})
 
 const navItems = [
   { name: 'Dashboard',      path: '/',                              badge: null,
@@ -474,6 +566,7 @@ const navItems = [
 
 /* ── Profile strip ── */
 .sidebar__profile {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -482,7 +575,6 @@ const navItems = [
   border-radius: 12px;
   background: var(--glass-2);
   border: 1px solid var(--border-soft);
-  cursor: pointer;
   transition: all 0.22s ease;
   flex-shrink: 0;
 }
@@ -538,18 +630,135 @@ const navItems = [
 
 .profile__role {
   font-size: 0.65rem;
-  color: var(--t4);
+  color: var(--t2);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.profile__menu {
-  color: var(--t4);
+.profile__menu-btn {
   flex-shrink: 0;
+  width: 26px;
+  height: 26px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+  border: 1px solid var(--border-soft);
+  background: var(--glass);
+  color: var(--t2);
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s, border-color 0.18s;
 }
+.profile__menu-btn:hover,
+.profile__menu-btn--active {
+  background: var(--glass-hover);
+  color: var(--t1);
+  border-color: var(--border);
+}
+
+/* ── Profile dropdown ── */
+.profile-dropdown {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 0;
+  right: 0;
+  background: var(--dropdown-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--dropdown-border);
+  border-radius: 16px;
+  box-shadow: var(--dropdown-shadow);
+  z-index: 200;
+  overflow: hidden;
+  padding: 6px;
+}
+
+.profile-drop__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 10px 12px;
+}
+.profile-drop__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 2px solid var(--accent-border);
+  background: #0f3d20;
+  flex-shrink: 0;
+}
+.profile-drop__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.profile-drop__name {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--t1);
+  line-height: 1.2;
+}
+.profile-drop__email {
+  font-size: 0.68rem;
+  color: var(--t3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profile-drop__divider {
+  height: 1px;
+  background: var(--border-soft);
+  margin: 4px 0;
+}
+
+.profile-drop__item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  border-radius: 10px;
+  border: none;
+  background: transparent;
+  color: var(--t1);
+  font-family: 'Satoshi', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+  text-align: left;
+}
+.profile-drop__item:hover { background: var(--glass-hover); }
+.profile-drop__item--danger { color: var(--red); }
+.profile-drop__item--danger:hover { background: var(--red-dim); }
+
+.profile-drop__icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.profile-drop__icon--blue   { background: rgba(96,165,250,.15);  color: #60a5fa; }
+.profile-drop__icon--amber  { background: rgba(245,158,11,.15);  color: #f59e0b; }
+.profile-drop__icon--green  { background: rgba(34,197,94,.15);   color: var(--accent); }
+.profile-drop__icon--red    { background: var(--red-dim);         color: var(--red); }
+
+.profile-drop__label { flex: 1; }
+
+.profile-drop__arrow { color: var(--t4); flex-shrink: 0; }
+
+/* Transition */
+.profile-drop-enter-active { transition: opacity 0.18s ease, transform 0.18s ease; }
+.profile-drop-leave-active { transition: opacity 0.14s ease, transform 0.14s ease; }
+.profile-drop-enter-from,
+.profile-drop-leave-to     { opacity: 0; transform: translateY(6px) scale(0.97); }
 
 /* ── Upgrade CTA ── */
 .sidebar__upgrade {
