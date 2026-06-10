@@ -80,8 +80,8 @@ function dismiss() {
 }
 
 function join() {
+  window.open('https://t.me/globalgle', '_blank', 'noopener,noreferrer')
   dismiss()
-  // Replace href with actual community link when available
 }
 
 onMounted(() => {
