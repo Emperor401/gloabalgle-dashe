@@ -225,34 +225,6 @@
             </div>
           </div>
 
-          <div class="ref-stats">
-            <div class="ref-stat">
-              <span class="ref-stat__val">12</span>
-              <span class="ref-stat__lbl">Invited</span>
-            </div>
-            <div class="ref-stat-divider"></div>
-            <div class="ref-stat">
-              <span class="ref-stat__val">$180</span>
-              <span class="ref-stat__lbl">Earned</span>
-            </div>
-            <div class="ref-stat-divider"></div>
-            <div class="ref-stat">
-              <span class="ref-stat__val">7</span>
-              <span class="ref-stat__lbl">Active</span>
-            </div>
-          </div>
-
-          <div class="ref-progress-wrap">
-            <div class="ref-progress-label">
-              <span>Progress to next reward</span>
-              <span class="ref-progress-pct">60%</span>
-            </div>
-            <div class="ref-progress-bar">
-              <div class="ref-progress-fill" style="width: 60%"></div>
-            </div>
-            <p class="ref-progress-hint">3 more referrals to unlock <strong>$50 bonus</strong></p>
-          </div>
-
           <div class="ref-code-row">
             <div class="ref-code-box">
               <span class="ref-code-label">Your referral code</span>
