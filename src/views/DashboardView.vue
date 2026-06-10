@@ -251,6 +251,7 @@
               </button>
             </div>
           </div>
+
         </div>
 
         <!-- Advertplace -->
@@ -884,31 +885,34 @@ function fmtAmount(amount, currency = 'NGN') {
 /* ── Referral code row ── */
 .ref-code-row {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 10px;
-  margin-top: auto;
+  gap: 12px;
+  margin-top: 16px;
 }
 .ref-code-box {
-  flex: 1;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  padding: 10px 14px;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 16px;
   border-radius: 12px;
   border: 1.5px dashed rgba(124,92,252,0.35);
   background: rgba(124,92,252,0.06);
-  min-width: 0;
+  text-align: center;
 }
 .ref-code-label { font-size: 0.65rem; color: var(--t3); text-transform: uppercase; letter-spacing: 0.05em; }
-.ref-code-val   { font-size: 0.9rem; font-weight: 700; color: #a78bfa; letter-spacing: 0.06em; }
+.ref-code-val   { font-size: 1rem; font-weight: 700; color: #a78bfa; letter-spacing: 0.08em; }
 .ref-code-actions {
   display: flex;
-  gap: 6px;
-  flex-shrink: 0;
+  gap: 8px;
+  width: 100%;
 }
 .ref-copy-btn,
 .ref-share-btn {
-  display: flex; align-items: center; gap: 6px;
+  flex: 1;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
   padding: 10px 14px;
   border-radius: 12px;
   border: 1.5px solid rgba(124,92,252,0.35);
