@@ -607,10 +607,10 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 }
 
 .bn-item--active {
-  background: linear-gradient(145deg, rgba(245, 158, 11, 0.32), rgba(180, 83, 9, 0.42));
-  border: 1px solid rgba(245, 158, 11, 0.25);
-  color: #f59e0b;
-  box-shadow: 0 4px 18px rgba(245, 158, 11, 0.18) inset;
+  background: linear-gradient(145deg, rgba(34, 197, 94, 0.25), rgba(22, 163, 74, 0.35));
+  border: 1px solid rgba(34, 197, 94, 0.30);
+  color: #22c55e;
+  box-shadow: 0 4px 18px rgba(34, 197, 94, 0.15) inset;
 }
 
 /* ══════════════════════════════
@@ -636,10 +636,10 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   background: rgba(12, 10, 30, 0.06);
 }
 [data-theme="light"] .bn-item--active {
-  background: linear-gradient(145deg, rgba(245, 158, 11, 0.22), rgba(180, 83, 9, 0.28));
-  border: 1px solid rgba(245, 158, 11, 0.45);
-  color: #b45309;
-  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.15) inset;
+  background: linear-gradient(145deg, rgba(34, 197, 94, 0.18), rgba(22, 163, 74, 0.26));
+  border: 1px solid rgba(34, 197, 94, 0.40);
+  color: #16a34a;
+  box-shadow: 0 4px 14px rgba(34, 197, 94, 0.12) inset;
 }
 [data-theme="light"] .mobile-bottom-nav {
   border-color: rgba(0, 0, 0, 0.1);
