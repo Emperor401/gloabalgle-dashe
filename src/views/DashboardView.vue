@@ -1,17 +1,10 @@
 ﻿<!-- src/views/DashboardView.vue -->
 <template>
-  <div class="dashboard" ref="dashEl">
+  <div class="dashboard">
     <CommunityModal />
 
-    <!-- Ambient background orbs -->
-    <div class="orb orb--purple" aria-hidden="true"></div>
-    <div class="orb orb--blue"   aria-hidden="true"></div>
-
-    <!-- Cinematic scan line -->
-    <div class="scan-line" aria-hidden="true"></div>
-
     <!-- Page header -->
-    <div class="dash-header anim-header">
+    <div class="dash-header">
       <div class="dash-header__left">
         <h1 class="dash-header__title">Dashboard</h1>
         <p class="dash-header__sub">At-a-glance view of your account, subscription, and recent activity.</p>
@@ -28,7 +21,7 @@
     <div class="bento">
 
       <!-- ╔══ Balance Card (span 2) ══╗ -->
-      <div class="b-card b-balance anim-item" style="--i:1">
+      <div class="b-card b-balance">
 
         <!-- Greeting -->
         <p class="bal-greeting">Welcome back, <strong>Daniel</strong> <span class="wave-emoji">👋</span></p>
@@ -41,7 +34,7 @@
             </span>
             <div class="bal-fig">
               <span class="bal-sign">$</span>
-              <span class="bal-int">{{ balInt }}</span><span class="bal-dec">.{{ balDec }}</span>
+              <span class="bal-int">260,375</span><span class="bal-dec">.03</span>
             </div>
           </div>
           <button class="add-funds-btn" @click="router.push('/wallet')">Fund Wallet</button>
@@ -107,7 +100,7 @@
       <div class="b-plan-row">
 
         <!-- Active Plan -->
-        <div class="b-card ps-card anim-item" style="--i:2;cursor:pointer" @click="router.push('/billing')">
+        <div class="b-card ps-card" @click="router.push('/billing')" style="cursor:pointer">
           <div class="ps-top">
             <span class="ps-label">Active Plan</span>
             <div class="ps-icon ps-icon--green">
@@ -122,7 +115,7 @@
         </div>
 
         <!-- Renews / Expires -->
-        <div class="b-card ps-card anim-item" style="--i:3;cursor:pointer" @click="router.push('/billing')">
+        <div class="b-card ps-card" @click="router.push('/billing')" style="cursor:pointer">
           <div class="ps-top">
             <span class="ps-label">Renews / Expires</span>
             <div class="ps-icon ps-icon--blue">
@@ -139,7 +132,7 @@
         </div>
 
         <!-- Recent Payments -->
-        <div class="b-card ps-card anim-item" style="--i:4;cursor:pointer" @click="router.push('/transactions')">
+        <div class="b-card ps-card" @click="router.push('/transactions')" style="cursor:pointer">
           <div class="ps-top">
             <span class="ps-label">Recent Payments</span>
             <div class="ps-icon ps-icon--purple">
@@ -157,7 +150,7 @@
       </div>
 
       <!-- ╔══ Recent Wallet Transactions (span 2) ══╗ -->
-      <div class="b-card b-recent-txn anim-item" style="--i:5">
+      <div class="b-card b-recent-txn">
         <div class="section-head">
           <span class="section-title">Recent wallet transactions</span>
           <a class="see-all" @click="router.push('/transactions')">See all →</a>
@@ -175,7 +168,7 @@
       </div>
 
       <!-- ╔══ Recent Payments (span 2) ══╗ -->
-      <div class="b-card b-recent-pay anim-item" style="--i:6">
+      <div class="b-card b-recent-pay">
         <div class="section-head">
           <span class="section-title">Recent payments</span>
           <a class="see-all" @click="router.push('/transactions')">See all →</a>
@@ -216,7 +209,7 @@
       <div class="b-promo-row">
 
         <!-- Refer & Earn -->
-        <div class="promo-card promo-card--referral anim-item" style="--i:7">
+        <div class="promo-card promo-card--referral">
           <div class="promo-card__header">
             <div class="promo-icon promo-icon--purple">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
@@ -262,7 +255,7 @@
         </div>
 
         <!-- Advertplace -->
-        <div class="promo-card promo-card--advert anim-item" style="--i:8">
+        <div class="promo-card promo-card--advert">
           <div class="promo-card__header">
             <div class="promo-icon promo-icon--amber">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
@@ -311,38 +304,12 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import CommunityModal from '../components/ui/CommunityModal.vue'
 
 const router = useRouter()
-const dashEl = ref(null)
 const autoDeposit = ref(true)
-
-/* ── Balance counter ── */
-const displayBalance = ref(0)
-const TARGET = 260375.03
-const balInt = computed(() => Math.floor(displayBalance.value).toLocaleString())
-const balDec = computed(() => String(Math.round((displayBalance.value % 1) * 100)).padStart(2, '0'))
-
-onMounted(() => {
-  requestAnimationFrame(() => dashEl.value?.classList.add('is-mounted'))
-
-  const duration = 2000
-  const startTime = performance.now()
-  const startDelay = 350
-
-  setTimeout(() => {
-    function tick(now) {
-      const t = Math.min((now - startTime) / duration, 1)
-      const eased = t < 1 ? 1 - Math.pow(1 - t, 4) : 1
-      displayBalance.value = eased * TARGET
-      if (t < 1) requestAnimationFrame(tick)
-      else displayBalance.value = TARGET
-    }
-    requestAnimationFrame(tick)
-  }, startDelay)
-})
 
 
 const refCopied = ref(false)
@@ -377,125 +344,7 @@ function fmtAmount(amount, currency = 'NGN') {
 </script>
 
 <style scoped>
-/* ════════════════════════════════════════════
-   CINEMATIC ENTRY ANIMATIONS
-   ════════════════════════════════════════════ */
-
-/* 1 ── Spring float-up */
-@keyframes dashFloat {
-  0%   { opacity: 0; transform: translateY(72px) scale(0.92); filter: blur(14px); }
-  55%  { filter: blur(0); }
-  72%  { transform: translateY(-10px) scale(1.012); }
-  86%  { transform: translateY(4px) scale(0.998); }
-  100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
-}
-
-/* 2 ── Header slides down */
-@keyframes dashHeaderIn {
-  0%   { opacity: 0; transform: translateY(-28px); filter: blur(8px); }
-  60%  { filter: blur(0); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-/* 3 ── Balance card glow pulse on landing */
-@keyframes balGlow {
-  0%   { box-shadow: 0 0 0 0 rgba(124, 92, 252, 0); }
-  45%  { box-shadow: 0 0 80px 18px rgba(124, 92, 252, 0.28), 0 0 140px 40px rgba(124, 92, 252, 0.10); }
-  100% { box-shadow: 0 4px 30px rgba(0,0,0,0.35); }
-}
-
-/* 4 ── Balance shimmer sweep */
-@keyframes balShimmer {
-  0%   { background-position: -200% center; }
-  100% { background-position: 300% center; }
-}
-
-/* 5 ── Scan line */
-@keyframes scanDown {
-  0%   { top: 0%; opacity: 1; }
-  92%  { opacity: 0.7; }
-  100% { top: 105%; opacity: 0; }
-}
-
-/* 6 ── Ambient orb drift */
-@keyframes orbDrift1 {
-  0%,100% { transform: translate(0px, 0px) scale(1); }
-  30%     { transform: translate(70px, -50px) scale(1.12); }
-  65%     { transform: translate(-40px, 30px) scale(0.92); }
-}
-@keyframes orbDrift2 {
-  0%,100% { transform: translate(0px, 0px) scale(1); }
-  35%     { transform: translate(-60px, 40px) scale(1.08); }
-  70%     { transform: translate(35px, -45px) scale(0.95); }
-}
-
-/* ── Ambient orbs ── */
-.orb {
-  position: fixed;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-  filter: blur(80px);
-}
-.orb--purple {
-  width: 500px; height: 500px;
-  top: -100px; left: -80px;
-  background: radial-gradient(circle, rgba(124,92,252,0.22) 0%, transparent 70%);
-  animation: orbDrift1 18s ease-in-out infinite;
-}
-.orb--blue {
-  width: 400px; height: 400px;
-  bottom: 0px; right: -60px;
-  background: radial-gradient(circle, rgba(96,165,250,0.18) 0%, transparent 70%);
-  animation: orbDrift2 22s ease-in-out infinite;
-}
-
-/* ── Scan line ── */
-.scan-line {
-  position: fixed;
-  left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent 0%, rgba(124,92,252,0.7) 30%, rgba(96,165,250,0.9) 50%, rgba(124,92,252,0.7) 70%, transparent 100%);
-  box-shadow: 0 0 20px 4px rgba(124,92,252,0.5), 0 0 60px 10px rgba(96,165,250,0.2);
-  pointer-events: none;
-  z-index: 9998;
-  animation: scanDown 1.1s cubic-bezier(0.4, 0, 0.2, 1) 0.05s forwards;
-  opacity: 0;
-}
-
-/* ── Pre-mount: everything invisible ── */
-.anim-header,
-.anim-item {
-  opacity: 0;
-}
-
-/* ── Post-mount: trigger animations ── */
-.is-mounted .anim-header {
-  animation: dashHeaderIn 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.08s forwards;
-}
-
-.is-mounted .anim-item {
-  animation: dashFloat 1.05s cubic-bezier(0.22, 1.28, 0.36, 1) calc(var(--i, 1) * 0.115s + 0.1s) forwards;
-}
-
-/* Balance card extra glow on landing */
-.is-mounted .b-balance {
-  animation:
-    dashFloat 1.05s cubic-bezier(0.22, 1.28, 0.36, 1) calc(1 * 0.115s + 0.1s) forwards,
-    balGlow 1.6s ease-out calc(1 * 0.115s + 0.85s) forwards;
-}
-
-/* Balance shimmer on the number */
-.is-mounted .bal-int {
-  background: linear-gradient(90deg, var(--t1) 0%, #fff 40%, rgba(124,92,252,0.9) 55%, var(--t1) 75%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: balShimmer 1.8s ease-in-out 0.7s forwards;
-}
-
-.dashboard { display: flex; flex-direction: column; gap: 20px; position: relative; }
+.dashboard { display: flex; flex-direction: column; gap: 20px; }
 
 /* ══ PAGE HEADER ══ */
 .dash-header {
