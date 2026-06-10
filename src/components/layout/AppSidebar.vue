@@ -163,12 +163,12 @@
         <svg width="64" height="72" viewBox="0 0 64 72" fill="none">
           <defs>
             <linearGradient id="bowL" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#f9a8d4"/>
-              <stop offset="100%" stop-color="#ec4899"/>
+              <stop offset="0%" stop-color="#fcd34d"/>
+              <stop offset="100%" stop-color="#f59e0b"/>
             </linearGradient>
             <linearGradient id="bowR" x1="1" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#f472b6"/>
-              <stop offset="100%" stop-color="#be185d"/>
+              <stop offset="0%" stop-color="#f59e0b"/>
+              <stop offset="100%" stop-color="#b45309"/>
             </linearGradient>
           </defs>
           <!-- left wing -->
@@ -176,16 +176,16 @@
           <!-- right wing -->
           <path d="M32 34 C38 26 54 22 57 12 C59 4 49 1 42 8 C37 13 34 24 32 34Z" fill="url(#bowR)"/>
           <!-- knot -->
-          <ellipse cx="32" cy="34" rx="6" ry="5" fill="#f472b6"/>
-          <ellipse cx="32" cy="34" rx="3" ry="2.5" fill="#fce7f3" opacity="0.5"/>
+          <ellipse cx="32" cy="34" rx="6" ry="5" fill="#f59e0b"/>
+          <ellipse cx="32" cy="34" rx="3" ry="2.5" fill="#fef3c7" opacity="0.6"/>
           <!-- left tail -->
           <path d="M27 37 C22 46 18 57 22 67" stroke="url(#bowL)" stroke-width="5" stroke-linecap="round"/>
           <!-- right tail -->
           <path d="M37 37 C42 46 46 57 42 67" stroke="url(#bowR)" stroke-width="5" stroke-linecap="round"/>
           <!-- sparkle dots -->
-          <circle cx="14" cy="6" r="2" fill="#f9a8d4" opacity="0.7"/>
-          <circle cx="52" cy="5" r="1.5" fill="#f472b6" opacity="0.6"/>
-          <circle cx="58" cy="22" r="1.5" fill="#fce7f3" opacity="0.5"/>
+          <circle cx="14" cy="6" r="2" fill="#fcd34d" opacity="0.7"/>
+          <circle cx="52" cy="5" r="1.5" fill="#f59e0b" opacity="0.6"/>
+          <circle cx="58" cy="22" r="1.5" fill="#fef3c7" opacity="0.5"/>
         </svg>
       </div>
     </div>
@@ -568,7 +568,7 @@ const navItems = [
   transition: border-color 0.25s ease;
 }
 
-.sidebar__upgrade:hover { border-color: rgba(244, 114, 182, 0.35); }
+.sidebar__upgrade:hover { border-color: rgba(245, 158, 11, 0.35); }
 
 .upgrade__body {
   display: flex;
@@ -599,7 +599,7 @@ const navItems = [
   align-self: flex-start;
   padding: 6px 18px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #f472b6 0%, #be185d 100%);
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
   border: none;
   color: #fff;
   font-family: 'Satoshi', sans-serif;
