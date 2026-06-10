@@ -270,23 +270,6 @@
             </span>
           </div>
 
-          <div class="advert-metrics">
-            <div class="advert-metric">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-              <span class="advert-metric__val">24.8k</span>
-              <span class="advert-metric__lbl">Impressions</span>
-            </div>
-            <div class="advert-metric">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              <span class="advert-metric__val">1,340</span>
-              <span class="advert-metric__lbl">Clicks</span>
-            </div>
-            <div class="advert-metric">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-              <span class="advert-metric__val">$312</span>
-              <span class="advert-metric__lbl">Revenue</span>
-            </div>
-          </div>
 
           <div class="advert-slots">
             <div class="advert-slot advert-slot--active">
