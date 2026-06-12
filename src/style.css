@@ -158,6 +158,57 @@ html, body {
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 999px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--accent-border); }
 
+/* ═══════════════════════════════════════════════
+   GLOBAL FADE-UP — every page's cards/sections
+   ═══════════════════════════════════════════════ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.websites-page > *, .bill-page > *, .gen-page > *, .be-page > *,
+.cmp > *, .cc-page > *, .email-page > *, .composer-page > *,
+.help > *, .set-page > *, .sms-page > *, .sc-page > *,
+.tools-page > *, .transactions > *, .tut-page > *,
+.wf-page > *, .wallet-page > * {
+  animation: fadeUp 0.55s cubic-bezier(0.4, 0, 0.2, 1) 0.05s both;
+}
+
+.websites-page > *:nth-child(2), .bill-page > *:nth-child(2), .gen-page > *:nth-child(2),
+.be-page > *:nth-child(2), .cmp > *:nth-child(2), .cc-page > *:nth-child(2),
+.email-page > *:nth-child(2), .composer-page > *:nth-child(2), .help > *:nth-child(2),
+.set-page > *:nth-child(2), .sms-page > *:nth-child(2), .sc-page > *:nth-child(2),
+.tools-page > *:nth-child(2), .transactions > *:nth-child(2), .tut-page > *:nth-child(2),
+.wf-page > *:nth-child(2), .wallet-page > *:nth-child(2) { animation-delay: 0.15s; }
+
+.websites-page > *:nth-child(3), .bill-page > *:nth-child(3), .gen-page > *:nth-child(3),
+.be-page > *:nth-child(3), .cmp > *:nth-child(3), .cc-page > *:nth-child(3),
+.email-page > *:nth-child(3), .composer-page > *:nth-child(3), .help > *:nth-child(3),
+.set-page > *:nth-child(3), .sms-page > *:nth-child(3), .sc-page > *:nth-child(3),
+.tools-page > *:nth-child(3), .transactions > *:nth-child(3), .tut-page > *:nth-child(3),
+.wf-page > *:nth-child(3), .wallet-page > *:nth-child(3) { animation-delay: 0.25s; }
+
+.websites-page > *:nth-child(4), .bill-page > *:nth-child(4), .gen-page > *:nth-child(4),
+.be-page > *:nth-child(4), .cmp > *:nth-child(4), .cc-page > *:nth-child(4),
+.email-page > *:nth-child(4), .composer-page > *:nth-child(4), .help > *:nth-child(4),
+.set-page > *:nth-child(4), .sms-page > *:nth-child(4), .sc-page > *:nth-child(4),
+.tools-page > *:nth-child(4), .transactions > *:nth-child(4), .tut-page > *:nth-child(4),
+.wf-page > *:nth-child(4), .wallet-page > *:nth-child(4) { animation-delay: 0.35s; }
+
+.websites-page > *:nth-child(5), .bill-page > *:nth-child(5), .gen-page > *:nth-child(5),
+.be-page > *:nth-child(5), .cmp > *:nth-child(5), .cc-page > *:nth-child(5),
+.email-page > *:nth-child(5), .composer-page > *:nth-child(5), .help > *:nth-child(5),
+.set-page > *:nth-child(5), .sms-page > *:nth-child(5), .sc-page > *:nth-child(5),
+.tools-page > *:nth-child(5), .transactions > *:nth-child(5), .tut-page > *:nth-child(5),
+.wf-page > *:nth-child(5), .wallet-page > *:nth-child(5) { animation-delay: 0.45s; }
+
+.websites-page > *:nth-child(6), .bill-page > *:nth-child(6), .gen-page > *:nth-child(6),
+.be-page > *:nth-child(6), .cmp > *:nth-child(6), .cc-page > *:nth-child(6),
+.email-page > *:nth-child(6), .composer-page > *:nth-child(6), .help > *:nth-child(6),
+.set-page > *:nth-child(6), .sms-page > *:nth-child(6), .sc-page > *:nth-child(6),
+.tools-page > *:nth-child(6), .transactions > *:nth-child(6), .tut-page > *:nth-child(6),
+.wf-page > *:nth-child(6), .wallet-page > *:nth-child(6) { animation-delay: 0.55s; }
+
 /* ══════════════════════════════════════════════
    GLOBAL MOBILE RESPONSIVE — 768px breakpoint
    ══════════════════════════════════════════════ */
