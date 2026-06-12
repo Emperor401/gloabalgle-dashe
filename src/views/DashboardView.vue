@@ -344,6 +344,25 @@ function fmtAmount(amount, currency = 'NGN') {
 </script>
 
 <style scoped>
+/* ── Fade-up entry animation ── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dash-header        { animation: fadeUp 0.55s cubic-bezier(0.4, 0, 0.2, 1) 0.05s both; }
+.b-balance          { animation: fadeUp 0.55s cubic-bezier(0.4, 0, 0.2, 1) 0.15s both; }
+.b-plan-row         { animation: fadeUp 0.55s cubic-bezier(0.4, 0, 0.2, 1) 0.25s both; }
+.b-recent-txn       { animation: fadeUp 0.55s cubic-bezier(0.4, 0, 0.2, 1) 0.35s both; }
+.b-recent-pay       { animation: fadeUp 0.55s cubic-bezier(0.4, 0, 0.2, 1) 0.45s both; }
+.b-promo-row        { animation: fadeUp 0.55s cubic-bezier(0.4, 0, 0.2, 1) 0.55s both; }
+
 .dashboard { display: flex; flex-direction: column; gap: 20px; }
 
 /* ══ PAGE HEADER ══ */
